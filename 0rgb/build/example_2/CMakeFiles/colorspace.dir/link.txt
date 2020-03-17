@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcolorspace.a  CMakeFiles/colorspace.dir/src/colorspaceadjustment.cpp.o
+/usr/bin/ranlib libcolorspace.a

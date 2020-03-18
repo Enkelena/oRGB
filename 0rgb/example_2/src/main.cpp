@@ -27,9 +27,10 @@ int main(int argc, char *argv[]) {
  
  //------------------------------------------------------
   // functions here...
-  test.normalize(img);
-
-
+  img=test.normalize(img);
+  img =linearTransform(img);
+  test.getNewangle(img);  
+  img=test.applyRotation(img);
   
 
 //--------------------------------------------------------

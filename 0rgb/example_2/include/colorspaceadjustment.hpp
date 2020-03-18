@@ -27,16 +27,15 @@ class ConvertTooRGB {
 
     cv::Mat normalize(cv::Mat img);
     cv::Mat linearTransform(cv::Mat img); 
-    cv::Mat getNewangle(cv::Mat img);
-    cv::Mat rotatePoint(double angle);
+    double getNewangle(cv::Mat img);
+    double getAngle(void);
+     Eigen::Matrix3d rotatePoint(double angle);
     cv::Mat applyRotation(cv::Mat img);
 
 
-    // bool setRotate0Matrix(double angle1, double angle2);
-    // Eigen::Matrix3d getRotate0Matrix3d(void);
-
     private:
     double angleTheta;
+
 
 };
 #endif

@@ -7,22 +7,32 @@
 #IncludeRegexTransform: 
 
 ../example_2/include/colorspaceadjustment.hpp
+iostream
+-
+math.h
+-
 Eigen/Dense
 -
 Eigen/Geometry
 -
-iostream
+stdio.h
 -
-unsupported/Eigen/MatrixFunctions
+cstdlib
+-
+opencv2/core/core.hpp
+-
+opencv2/highgui/highgui.hpp
+-
+opencv2/imgproc/imgproc.hpp
 -
 
-/home/solaborate/Downloads/0rgb/example_2/src/colorspaceadjustment.cpp
+/home/solaborate/oRGB/0rgb/example_2/src/colorspaceadjustment.cpp
 colorspaceadjustment.hpp
-/home/solaborate/Downloads/0rgb/example_2/src/colorspaceadjustment.hpp
+/home/solaborate/oRGB/0rgb/example_2/src/colorspaceadjustment.hpp
 
-/home/solaborate/Downloads/0rgb/example_2/src/main.cpp
+/home/solaborate/oRGB/0rgb/example_2/src/main.cpp
 colorspaceadjustment.hpp
-/home/solaborate/Downloads/0rgb/example_2/src/colorspaceadjustment.hpp
+/home/solaborate/oRGB/0rgb/example_2/src/colorspaceadjustment.hpp
 iostream
 -
 Eigen/Dense
@@ -34,7 +44,7 @@ opencv2/highgui/highgui.hpp
 opencv2/imgproc/imgproc.hpp
 -
 colorspaceadjustment.cpp
-/home/solaborate/Downloads/0rgb/example_2/src/colorspaceadjustment.cpp
+/home/solaborate/oRGB/0rgb/example_2/src/colorspaceadjustment.cpp
 unsupported/Eigen/MatrixFunctions
 -
 

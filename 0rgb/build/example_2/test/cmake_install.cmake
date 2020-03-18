@@ -1,4 +1,4 @@
-# Install script for directory: /home/solaborate/Downloads/0rgb/example_2/test
+# Install script for directory: /home/solaborate/oRGB/0rgb/example_2/test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

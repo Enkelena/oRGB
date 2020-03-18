@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/solaborate/Downloads/0rgb
+CMAKE_SOURCE_DIR = /home/solaborate/oRGB/0rgb
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/solaborate/Downloads/0rgb/build
+CMAKE_BINARY_DIR = /home/solaborate/oRGB/0rgb/build
 
 #=============================================================================
 # Directory level rules for directory example_2
@@ -88,7 +88,7 @@ example_2/preinstall: example_2/test/preinstall
 example_2/CMakeFiles/colorspace.dir/all:
 	$(MAKE) -f example_2/CMakeFiles/colorspace.dir/build.make example_2/CMakeFiles/colorspace.dir/depend
 	$(MAKE) -f example_2/CMakeFiles/colorspace.dir/build.make example_2/CMakeFiles/colorspace.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/solaborate/Downloads/0rgb/build/CMakeFiles --progress-num=1,2 "Built target colorspace"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/solaborate/oRGB/0rgb/build/CMakeFiles --progress-num=1,2 "Built target colorspace"
 .PHONY : example_2/CMakeFiles/colorspace.dir/all
 
 # Include target in all.
@@ -98,9 +98,9 @@ all: example_2/CMakeFiles/colorspace.dir/all
 
 # Build rule for subdir invocation for target.
 example_2/CMakeFiles/colorspace.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/Downloads/0rgb/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/oRGB/0rgb/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 example_2/CMakeFiles/colorspace.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/Downloads/0rgb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/oRGB/0rgb/build/CMakeFiles 0
 .PHONY : example_2/CMakeFiles/colorspace.dir/rule
 
 # Convenience name for target.
@@ -125,7 +125,7 @@ clean: example_2/CMakeFiles/colorspace.dir/clean
 example_2/CMakeFiles/colorspace_exec.dir/all: example_2/CMakeFiles/colorspace.dir/all
 	$(MAKE) -f example_2/CMakeFiles/colorspace_exec.dir/build.make example_2/CMakeFiles/colorspace_exec.dir/depend
 	$(MAKE) -f example_2/CMakeFiles/colorspace_exec.dir/build.make example_2/CMakeFiles/colorspace_exec.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/solaborate/Downloads/0rgb/build/CMakeFiles --progress-num=3,4 "Built target colorspace_exec"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/solaborate/oRGB/0rgb/build/CMakeFiles --progress-num=3,4 "Built target colorspace_exec"
 .PHONY : example_2/CMakeFiles/colorspace_exec.dir/all
 
 # Include target in all.
@@ -135,9 +135,9 @@ all: example_2/CMakeFiles/colorspace_exec.dir/all
 
 # Build rule for subdir invocation for target.
 example_2/CMakeFiles/colorspace_exec.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/Downloads/0rgb/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/oRGB/0rgb/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 example_2/CMakeFiles/colorspace_exec.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/Downloads/0rgb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/oRGB/0rgb/build/CMakeFiles 0
 .PHONY : example_2/CMakeFiles/colorspace_exec.dir/rule
 
 # Convenience name for target.
@@ -159,12 +159,12 @@ clean: example_2/CMakeFiles/colorspace_exec.dir/clean
 # Directory level rules for directory example_2/test
 
 # Convenience name for "all" pass in the directory.
-example_2/test/all: example_2/test/CMakeFiles/colorspace_test1.dir/all
+example_2/test/all:
 
 .PHONY : example_2/test/all
 
 # Convenience name for "clean" pass in the directory.
-example_2/test/clean: example_2/test/CMakeFiles/colorspace_test1.dir/clean
+example_2/test/clean:
 
 .PHONY : example_2/test/clean
 
@@ -172,43 +172,6 @@ example_2/test/clean: example_2/test/CMakeFiles/colorspace_test1.dir/clean
 example_2/test/preinstall:
 
 .PHONY : example_2/test/preinstall
-
-#=============================================================================
-# Target rules for target example_2/test/CMakeFiles/colorspace_test1.dir
-
-# All Build rule for target.
-example_2/test/CMakeFiles/colorspace_test1.dir/all: example_2/CMakeFiles/colorspace.dir/all
-	$(MAKE) -f example_2/test/CMakeFiles/colorspace_test1.dir/build.make example_2/test/CMakeFiles/colorspace_test1.dir/depend
-	$(MAKE) -f example_2/test/CMakeFiles/colorspace_test1.dir/build.make example_2/test/CMakeFiles/colorspace_test1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/solaborate/Downloads/0rgb/build/CMakeFiles --progress-num=5,6 "Built target colorspace_test1"
-.PHONY : example_2/test/CMakeFiles/colorspace_test1.dir/all
-
-# Include target in all.
-all: example_2/test/CMakeFiles/colorspace_test1.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-example_2/test/CMakeFiles/colorspace_test1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/Downloads/0rgb/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 example_2/test/CMakeFiles/colorspace_test1.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/Downloads/0rgb/build/CMakeFiles 0
-.PHONY : example_2/test/CMakeFiles/colorspace_test1.dir/rule
-
-# Convenience name for target.
-colorspace_test1: example_2/test/CMakeFiles/colorspace_test1.dir/rule
-
-.PHONY : colorspace_test1
-
-# clean rule for target.
-example_2/test/CMakeFiles/colorspace_test1.dir/clean:
-	$(MAKE) -f example_2/test/CMakeFiles/colorspace_test1.dir/build.make example_2/test/CMakeFiles/colorspace_test1.dir/clean
-.PHONY : example_2/test/CMakeFiles/colorspace_test1.dir/clean
-
-# clean rule for target.
-clean: example_2/test/CMakeFiles/colorspace_test1.dir/clean
-
-.PHONY : clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

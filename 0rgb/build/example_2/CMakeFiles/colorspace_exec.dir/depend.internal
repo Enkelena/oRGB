@@ -3,8 +3,8 @@
 
 example_2/CMakeFiles/colorspace_exec.dir/src/main.cpp.o
  ../example_2/include/colorspaceadjustment.hpp
- /home/solaborate/Downloads/0rgb/example_2/src/colorspaceadjustment.cpp
- /home/solaborate/Downloads/0rgb/example_2/src/main.cpp
+ /home/solaborate/oRGB/0rgb/example_2/src/colorspaceadjustment.cpp
+ /home/solaborate/oRGB/0rgb/example_2/src/main.cpp
  /usr/local/include/eigen3/Eigen/Cholesky
  /usr/local/include/eigen3/Eigen/Core
  /usr/local/include/eigen3/Eigen/Dense

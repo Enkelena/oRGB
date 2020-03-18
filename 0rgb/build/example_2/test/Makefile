@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/solaborate/Downloads/0rgb
+CMAKE_SOURCE_DIR = /home/solaborate/oRGB/0rgb
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/solaborate/Downloads/0rgb/build
+CMAKE_BINARY_DIR = /home/solaborate/oRGB/0rgb/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -78,27 +78,16 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # The main all target
 all: cmake_check_build_system
-	cd /home/solaborate/Downloads/0rgb/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/Downloads/0rgb/build/CMakeFiles /home/solaborate/Downloads/0rgb/build/example_2/test/CMakeFiles/progress.marks
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/test/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/Downloads/0rgb/build/CMakeFiles 0
+	cd /home/solaborate/oRGB/0rgb/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/oRGB/0rgb/build/CMakeFiles /home/solaborate/oRGB/0rgb/build/example_2/test/CMakeFiles/progress.marks
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/test/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/oRGB/0rgb/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/test/clean
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/test/clean
 .PHONY : clean
 
 # The main clean target
@@ -108,60 +97,18 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/test/preinstall
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/test/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/test/preinstall
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/test/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/solaborate/Downloads/0rgb/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/solaborate/oRGB/0rgb/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-# Convenience name for target.
-example_2/test/CMakeFiles/colorspace_test1.dir/rule:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/test/CMakeFiles/colorspace_test1.dir/rule
-.PHONY : example_2/test/CMakeFiles/colorspace_test1.dir/rule
-
-# Convenience name for target.
-colorspace_test1: example_2/test/CMakeFiles/colorspace_test1.dir/rule
-
-.PHONY : colorspace_test1
-
-# fast build rule for target.
-colorspace_test1/fast:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f example_2/test/CMakeFiles/colorspace_test1.dir/build.make example_2/test/CMakeFiles/colorspace_test1.dir/build
-.PHONY : colorspace_test1/fast
-
-opencv_wrapper_test.o: opencv_wrapper_test.cpp.o
-
-.PHONY : opencv_wrapper_test.o
-
-# target to build an object file
-opencv_wrapper_test.cpp.o:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f example_2/test/CMakeFiles/colorspace_test1.dir/build.make example_2/test/CMakeFiles/colorspace_test1.dir/opencv_wrapper_test.cpp.o
-.PHONY : opencv_wrapper_test.cpp.o
-
-opencv_wrapper_test.i: opencv_wrapper_test.cpp.i
-
-.PHONY : opencv_wrapper_test.i
-
-# target to preprocess a source file
-opencv_wrapper_test.cpp.i:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f example_2/test/CMakeFiles/colorspace_test1.dir/build.make example_2/test/CMakeFiles/colorspace_test1.dir/opencv_wrapper_test.cpp.i
-.PHONY : opencv_wrapper_test.cpp.i
-
-opencv_wrapper_test.s: opencv_wrapper_test.cpp.s
-
-.PHONY : opencv_wrapper_test.s
-
-# target to generate assembly for a file
-opencv_wrapper_test.cpp.s:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f example_2/test/CMakeFiles/colorspace_test1.dir/build.make example_2/test/CMakeFiles/colorspace_test1.dir/opencv_wrapper_test.cpp.s
-.PHONY : opencv_wrapper_test.cpp.s
 
 # Help Target
 help:
@@ -171,11 +118,6 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... colorspace_test1"
-	@echo "... test"
-	@echo "... opencv_wrapper_test.o"
-	@echo "... opencv_wrapper_test.i"
-	@echo "... opencv_wrapper_test.s"
 .PHONY : help
 
 
@@ -187,6 +129,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/solaborate/Downloads/0rgb/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/solaborate/oRGB/0rgb/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

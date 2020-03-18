@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/solaborate/Downloads/0rgb
+CMAKE_SOURCE_DIR = /home/solaborate/oRGB/0rgb
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/solaborate/Downloads/0rgb/build
+CMAKE_BINARY_DIR = /home/solaborate/oRGB/0rgb/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,17 +67,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -91,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/Downloads/0rgb/build/CMakeFiles /home/solaborate/Downloads/0rgb/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/oRGB/0rgb/build/CMakeFiles /home/solaborate/oRGB/0rgb/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/Downloads/0rgb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/oRGB/0rgb/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -147,19 +136,6 @@ colorspace_exec/fast:
 	$(MAKE) -f example_2/CMakeFiles/colorspace_exec.dir/build.make example_2/CMakeFiles/colorspace_exec.dir/build
 .PHONY : colorspace_exec/fast
 
-#=============================================================================
-# Target rules for targets named colorspace_test1
-
-# Build rule for target.
-colorspace_test1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 colorspace_test1
-.PHONY : colorspace_test1
-
-# fast build rule for target.
-colorspace_test1/fast:
-	$(MAKE) -f example_2/test/CMakeFiles/colorspace_test1.dir/build.make example_2/test/CMakeFiles/colorspace_test1.dir/build
-.PHONY : colorspace_test1/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -167,11 +143,9 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... test"
 	@echo "... edit_cache"
 	@echo "... colorspace"
 	@echo "... colorspace_exec"
-	@echo "... colorspace_test1"
 .PHONY : help
 
 

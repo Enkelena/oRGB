@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/solaborate/Downloads/0rgb
+CMAKE_SOURCE_DIR = /home/solaborate/oRGB/0rgb
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/solaborate/Downloads/0rgb/build
+CMAKE_BINARY_DIR = /home/solaborate/oRGB/0rgb/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -78,27 +78,16 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # The main all target
 all: cmake_check_build_system
-	cd /home/solaborate/Downloads/0rgb/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/Downloads/0rgb/build/CMakeFiles /home/solaborate/Downloads/0rgb/build/example_2/CMakeFiles/progress.marks
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/Downloads/0rgb/build/CMakeFiles 0
+	cd /home/solaborate/oRGB/0rgb/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/oRGB/0rgb/build/CMakeFiles /home/solaborate/oRGB/0rgb/build/example_2/CMakeFiles/progress.marks
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/solaborate/oRGB/0rgb/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/clean
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/clean
 .PHONY : clean
 
 # The main clean target
@@ -108,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/preinstall
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/preinstall
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/solaborate/Downloads/0rgb/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/solaborate/oRGB/0rgb/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 example_2/CMakeFiles/colorspace.dir/rule:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/CMakeFiles/colorspace.dir/rule
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/CMakeFiles/colorspace.dir/rule
 .PHONY : example_2/CMakeFiles/colorspace.dir/rule
 
 # Convenience name for target.
@@ -133,12 +122,12 @@ colorspace: example_2/CMakeFiles/colorspace.dir/rule
 
 # fast build rule for target.
 colorspace/fast:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f example_2/CMakeFiles/colorspace.dir/build.make example_2/CMakeFiles/colorspace.dir/build
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f example_2/CMakeFiles/colorspace.dir/build.make example_2/CMakeFiles/colorspace.dir/build
 .PHONY : colorspace/fast
 
 # Convenience name for target.
 example_2/CMakeFiles/colorspace_exec.dir/rule:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/CMakeFiles/colorspace_exec.dir/rule
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f CMakeFiles/Makefile2 example_2/CMakeFiles/colorspace_exec.dir/rule
 .PHONY : example_2/CMakeFiles/colorspace_exec.dir/rule
 
 # Convenience name for target.
@@ -148,7 +137,7 @@ colorspace_exec: example_2/CMakeFiles/colorspace_exec.dir/rule
 
 # fast build rule for target.
 colorspace_exec/fast:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f example_2/CMakeFiles/colorspace_exec.dir/build.make example_2/CMakeFiles/colorspace_exec.dir/build
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f example_2/CMakeFiles/colorspace_exec.dir/build.make example_2/CMakeFiles/colorspace_exec.dir/build
 .PHONY : colorspace_exec/fast
 
 src/colorspaceadjustment.o: src/colorspaceadjustment.cpp.o
@@ -157,7 +146,7 @@ src/colorspaceadjustment.o: src/colorspaceadjustment.cpp.o
 
 # target to build an object file
 src/colorspaceadjustment.cpp.o:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f example_2/CMakeFiles/colorspace.dir/build.make example_2/CMakeFiles/colorspace.dir/src/colorspaceadjustment.cpp.o
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f example_2/CMakeFiles/colorspace.dir/build.make example_2/CMakeFiles/colorspace.dir/src/colorspaceadjustment.cpp.o
 .PHONY : src/colorspaceadjustment.cpp.o
 
 src/colorspaceadjustment.i: src/colorspaceadjustment.cpp.i
@@ -166,7 +155,7 @@ src/colorspaceadjustment.i: src/colorspaceadjustment.cpp.i
 
 # target to preprocess a source file
 src/colorspaceadjustment.cpp.i:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f example_2/CMakeFiles/colorspace.dir/build.make example_2/CMakeFiles/colorspace.dir/src/colorspaceadjustment.cpp.i
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f example_2/CMakeFiles/colorspace.dir/build.make example_2/CMakeFiles/colorspace.dir/src/colorspaceadjustment.cpp.i
 .PHONY : src/colorspaceadjustment.cpp.i
 
 src/colorspaceadjustment.s: src/colorspaceadjustment.cpp.s
@@ -175,7 +164,7 @@ src/colorspaceadjustment.s: src/colorspaceadjustment.cpp.s
 
 # target to generate assembly for a file
 src/colorspaceadjustment.cpp.s:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f example_2/CMakeFiles/colorspace.dir/build.make example_2/CMakeFiles/colorspace.dir/src/colorspaceadjustment.cpp.s
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f example_2/CMakeFiles/colorspace.dir/build.make example_2/CMakeFiles/colorspace.dir/src/colorspaceadjustment.cpp.s
 .PHONY : src/colorspaceadjustment.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -184,7 +173,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f example_2/CMakeFiles/colorspace_exec.dir/build.make example_2/CMakeFiles/colorspace_exec.dir/src/main.cpp.o
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f example_2/CMakeFiles/colorspace_exec.dir/build.make example_2/CMakeFiles/colorspace_exec.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -193,7 +182,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f example_2/CMakeFiles/colorspace_exec.dir/build.make example_2/CMakeFiles/colorspace_exec.dir/src/main.cpp.i
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f example_2/CMakeFiles/colorspace_exec.dir/build.make example_2/CMakeFiles/colorspace_exec.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -202,7 +191,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	cd /home/solaborate/Downloads/0rgb/build && $(MAKE) -f example_2/CMakeFiles/colorspace_exec.dir/build.make example_2/CMakeFiles/colorspace_exec.dir/src/main.cpp.s
+	cd /home/solaborate/oRGB/0rgb/build && $(MAKE) -f example_2/CMakeFiles/colorspace_exec.dir/build.make example_2/CMakeFiles/colorspace_exec.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -214,7 +203,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... colorspace"
-	@echo "... test"
 	@echo "... colorspace_exec"
 	@echo "... src/colorspaceadjustment.o"
 	@echo "... src/colorspaceadjustment.i"
@@ -233,6 +221,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/solaborate/Downloads/0rgb/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/solaborate/oRGB/0rgb/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -1,18 +1,26 @@
 #include "colorspaceadjustment.hpp"
 
 cv::Mat ConvertTooRGB::normalize(cv::Mat img) {
+   double r{0}, g{0}, b{0};
    cv::MatIterator_<cv::Vec3d> itd, end;
    for( itd=img.begin<cv::Vec3d>(); itd!= img.end<cv::Vec3d>();++itd) {
 
          double gamma =2.2;
 
- (*itd)[0] = cv::saturate_cast<uchar>(pow((float)((*itd)[0]/255.0), gamma)*255.0f);
- (*itd)[1] = cv::saturate_cast<uchar>(pow((float)((*itd)[1]/255.0), gamma)*255.0f);
- (*itd)[2] = cv::saturate_cast<uchar>(pow((float)((*itd)[2]/255.0), gamma)*255.0f);
+b= pow((static_cast<double>((*itd)[0])/255.0), 1/ gamma);
+g= pow((static_cast<double>((*itd)[1])/255.0), 1/ gamma);
+r= pow((static_cast<double>((*itd)[2])/255.0), 1/ gamma);
 
+
+Eigen::Vector3d _local(b,g,r);
+ (*itd)[0] = _local[0];
+ (*itd)[1] = _local[1];
+ (*itd)[2] =_local[2];
    }
    return img;
 }
+
+
 
 cv::Mat ConvertTooRGB::linearTransform(cv::Mat img) {
 
@@ -38,25 +46,27 @@ cv::Mat ConvertTooRGB::linearTransform(cv::Mat img) {
 
 double ConvertTooRGB::getNewangle(cv::Mat img) {
    cv::MatIterator_<cv::Vec3d> itd, end;
+   double thetaAngle=0;
    for( itd=img.begin<cv::Vec3d>(); itd!= img.end<cv::Vec3d>();++itd) {
 
       double b=(*itd)[0];
       double g=(*itd)[1];
       double r=(*itd)[2];
       double theta = atan2(r, g);
-      double newTheta;
-
+      double newTheta=0;
+   
       if (theta< M_PI / 3) {
          newTheta = (3/2)*theta;
       }
 
       else if((theta>= (M_PI /3)) && (theta <=M_PI)) {
          newTheta = M_PI/2 + 3/4*(theta-M_PI/3);   
-      }
-         double thetaAngle=(newTheta-theta);
-      this->angleTheta = thetaAngle;
-      return thetaAngle;
-} 
+      } 
+          thetaAngle=(newTheta-theta);
+     
+     
+ }   this->angleTheta = thetaAngle;
+ return thetaAngle; }
 
 double ConvertTooRGB::getAngle()
 {
@@ -83,16 +93,16 @@ Eigen::Matrix3d ConvertTooRGB::rotatePoint(double angle) {
 
 cv::Mat ConvertTooRGB::applyRotation(cv::Mat img) {
 
-   double angleTheta = getAngle();
-   Eigen::Matrix3d _matrix = rotatePoint(angleTheta);
+   double angle11 = getAngle();
+   Eigen::Matrix3d _matrix = rotatePoint(angle11);
 
-   cv::MatIterator_<cv::Vec3b> itd, end;
-   for( itd=img.begin<cv::Vec3b>(); itd!= img.end<cv::Vec3b>();++itd) {
+   cv::MatIterator_<cv::Vec3d> itd, end;
+   for( itd=img.begin<cv::Vec3d>(); itd!= img.end<cv::Vec3d>();++itd) {
 
       Eigen::Vector3d _local {(*itd)[0], (*itd)[1], (*itd)[2]};
       
       
       _local = _matrix * _local;
       } 
-
-return img; }
+ 
+return img; } 

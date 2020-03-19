@@ -6,7 +6,6 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include "colorspaceadjustment.cpp"
 using namespace cv;
-#include <unsupported/Eigen/MatrixFunctions>
 
 int main(int argc, char *argv[]) {
 
@@ -28,7 +27,7 @@ int main(int argc, char *argv[]) {
  //------------------------------------------------------
   // functions here...
   img=test.normalize(img);
-  img =linearTransform(img);
+  img =test.linearTransform(img);
   test.getNewangle(img);  
   img=test.applyRotation(img);
   

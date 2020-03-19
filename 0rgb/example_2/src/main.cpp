@@ -1,21 +1,20 @@
+#include "inversecolorpsaceadjustement.hpp"
 #include "colorspaceadjustment.hpp"
-#include <iostream>
-#include <Eigen/Dense>
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
 #include "colorspaceadjustment.cpp"
+#include "inversecolorpsaceadjustement.cpp"
+
 using namespace cv;
+
+
 
 int main(int argc, char *argv[]) {
 
+   Inverse inv;
 
-   ConvertTooRGB test;
-
+   ConvertTooRGB firstConvert;
+  
    std::string path = "/home/solaborate/Downloads/lena.png";
    cv::Mat img = cv::imread(path, cv::IMREAD_COLOR);
-
-
 
 //Check if image is empty or is not in three channel colorspace
   if (!img.data)
@@ -25,12 +24,12 @@ int main(int argc, char *argv[]) {
   }
  
  //------------------------------------------------------
-  // functions here...
-  img=test.normalize(img);
-  img =test.linearTransform(img);
-  test.getNewangle(img);  
-  img=test.applyRotation(img);
-  
+  //functions here...
+  img=firstConvert.normalize(img);
+  // img =firstConvert.linearTransform(img);
+  // img=firstConvert.fullRotation(img);  
+  // img=inv.fullRotation(img);
+
 
 //--------------------------------------------------------
   cv::namedWindow( "Result", cv::WINDOW_FULLSCREEN);
@@ -45,4 +44,3 @@ int main(int argc, char *argv[]) {
   return 0;
 
 }
- 

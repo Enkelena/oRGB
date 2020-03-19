@@ -15,6 +15,7 @@ include_directories(
 
 add_library( ${PROJECT_NAME}
   src/colorspaceadjustment.cpp
+  src/inversecolorpsaceadjustement.cpp
 )
 
 # Executables

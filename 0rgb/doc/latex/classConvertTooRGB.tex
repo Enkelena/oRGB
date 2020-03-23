@@ -1,0 +1,99 @@
+\hypertarget{classConvertTooRGB}{}\doxysection{Convert\+Too\+R\+GB Class Reference}
+\label{classConvertTooRGB}\index{ConvertTooRGB@{ConvertTooRGB}}
+
+
+Class that contains the functions to fully create the color space \char`\"{}o\+R\+G\+B\char`\"{}.  
+
+
+
+
+{\ttfamily \#include $<$colorspaceadjustment.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+cv\+::\+Mat \mbox{\hyperlink{classConvertTooRGB_ac2289bab2a6a961253210c5ddf950250}{normalize}} (cv\+::\+Mat img)
+\begin{DoxyCompactList}\small\item\em Function that normalizes the values. \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{classConvertTooRGB_abb3c4e226cd6c4f9d97e80722e012b39}{linear\+Transform}} (cv\+::\+Mat img)
+\begin{DoxyCompactList}\small\item\em function that returns a vector after it has been multiplied with a specific matrix given because of the formula \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{classConvertTooRGB_accad25adf5da9822dab00389be56d67f}{rotate\+Point}} (double angle)
+\begin{DoxyCompactList}\small\item\em contains a matrix of rotation, that we will use to rotate a vector in the next function \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{classConvertTooRGB_a5277be417027292de20e6d751a9abb21}{full\+Rotation}} (cv\+::\+Mat img)
+\begin{DoxyCompactList}\small\item\em based on the angle taken from the vector of the loaded image, it rotates that vector using the previous rotate\+Point function \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that contains the functions to fully create the color space \char`\"{}o\+R\+G\+B\char`\"{}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classConvertTooRGB_a5277be417027292de20e6d751a9abb21}\label{classConvertTooRGB_a5277be417027292de20e6d751a9abb21}} 
+\index{ConvertTooRGB@{ConvertTooRGB}!fullRotation@{fullRotation}}
+\index{fullRotation@{fullRotation}!ConvertTooRGB@{ConvertTooRGB}}
+\doxysubsubsection{\texorpdfstring{fullRotation()}{fullRotation()}}
+{\footnotesize\ttfamily cv\+::\+Mat Convert\+Too\+R\+G\+B\+::full\+Rotation (\begin{DoxyParamCaption}\item[{cv\+::\+Mat}]{img }\end{DoxyParamCaption})}
+
+
+
+based on the angle taken from the vector of the loaded image, it rotates that vector using the previous rotate\+Point function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cv\+::\+Mat 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classConvertTooRGB_abb3c4e226cd6c4f9d97e80722e012b39}\label{classConvertTooRGB_abb3c4e226cd6c4f9d97e80722e012b39}} 
+\index{ConvertTooRGB@{ConvertTooRGB}!linearTransform@{linearTransform}}
+\index{linearTransform@{linearTransform}!ConvertTooRGB@{ConvertTooRGB}}
+\doxysubsubsection{\texorpdfstring{linearTransform()}{linearTransform()}}
+{\footnotesize\ttfamily cv\+::\+Mat Convert\+Too\+R\+G\+B\+::linear\+Transform (\begin{DoxyParamCaption}\item[{cv\+::\+Mat}]{img }\end{DoxyParamCaption})}
+
+
+
+function that returns a vector after it has been multiplied with a specific matrix given because of the formula 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cv\+::\+Mat 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classConvertTooRGB_ac2289bab2a6a961253210c5ddf950250}\label{classConvertTooRGB_ac2289bab2a6a961253210c5ddf950250}} 
+\index{ConvertTooRGB@{ConvertTooRGB}!normalize@{normalize}}
+\index{normalize@{normalize}!ConvertTooRGB@{ConvertTooRGB}}
+\doxysubsubsection{\texorpdfstring{normalize()}{normalize()}}
+{\footnotesize\ttfamily cv\+::\+Mat Convert\+Too\+R\+G\+B\+::normalize (\begin{DoxyParamCaption}\item[{cv\+::\+Mat}]{img }\end{DoxyParamCaption})}
+
+
+
+Function that normalizes the values. 
+
+\mbox{\Hypertarget{classConvertTooRGB_accad25adf5da9822dab00389be56d67f}\label{classConvertTooRGB_accad25adf5da9822dab00389be56d67f}} 
+\index{ConvertTooRGB@{ConvertTooRGB}!rotatePoint@{rotatePoint}}
+\index{rotatePoint@{rotatePoint}!ConvertTooRGB@{ConvertTooRGB}}
+\doxysubsubsection{\texorpdfstring{rotatePoint()}{rotatePoint()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Convert\+Too\+R\+G\+B\+::rotate\+Point (\begin{DoxyParamCaption}\item[{double}]{angle }\end{DoxyParamCaption})}
+
+
+
+contains a matrix of rotation, that we will use to rotate a vector in the next function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Matrix3d 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+example\+\_\+2/include/colorspaceadjustment.\+hpp\end{DoxyCompactItemize}

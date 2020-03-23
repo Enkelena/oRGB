@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
  //------------------------------------------------------
   //functions here...
   img=firstConvert.normalize(img);
-  // img =firstConvert.linearTransform(img);
+  img =firstConvert.linearTransform(img);
   // img=firstConvert.fullRotation(img);  
   // img=inv.fullRotation(img);
 

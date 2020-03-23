@@ -1,7 +1,7 @@
 #include "colorspaceadjustment.hpp"
 
 cv::Mat ConvertTooRGB::normalize(cv::Mat img) {
- //img.convertTo(img, CV_64FC3);
+ img.convertTo(img, CV_64FC3);
     double r{0},b{0},g{0};
     cv::MatIterator_<cv::Vec3d> itd = img.begin<cv::Vec3d>(), itd_end = img.end<cv::Vec3d>();
     for(int i = 0; itd != itd_end; ++itd,++i)
@@ -15,8 +15,7 @@ cv::Mat ConvertTooRGB::normalize(cv::Mat img) {
     (*itd)[1] = g * 255.0;
     (*itd)[2] = b * 255.0;
     }
-    img.convertTo(img, CV_64FC3);
-  // img.convertTo(img, CV_8UC3);
+   
     return img;
 } 
 
@@ -33,9 +32,7 @@ cv::Mat ConvertTooRGB::linearTransform(cv::Mat img) {
      g= (*itd)[1];
      b= (*itd)[2];
 
-
       Eigen::Vector3d _local {r,g,b};
-
 
       _local = linear_matrix * _local;
 
@@ -43,7 +40,8 @@ cv::Mat ConvertTooRGB::linearTransform(cv::Mat img) {
      (*itd)[1]=(_local[1]);
       (*itd)[2]=(_local[2]);
    }
-      
+         img.convertTo(img, CV_8UC3);
+
 
    return img;
 }

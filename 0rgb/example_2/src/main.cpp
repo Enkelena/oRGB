@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
   
    std::string path = "/home/solaborate/Downloads/lena.png";
    cv::Mat img = cv::imread(path, cv::IMREAD_COLOR);
-
+cv::cvtColor(img, img, cv::COLOR_BGR2RGB);
 //Check if image is empty or is not in three channel colorspace
   if (!img.data)
   {
@@ -30,6 +30,9 @@ int main(int argc, char *argv[]) {
   // img=firstConvert.fullRotation(img);  
   // img=inv.fullRotation(img);
 
+  cv::cvtColor(img, img, cv::COLOR_BGR2RGB);
+
+  
 
 //--------------------------------------------------------
   cv::namedWindow( "Result", cv::WINDOW_FULLSCREEN);

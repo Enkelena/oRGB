@@ -8,10 +8,11 @@ Eigen::Matrix3d Inverse::rotatePoint(double angle) {
                        0, 0, 1;
 
 
-  _matrix(0,0) =  cos(angle * M_PI / 180);
-  _matrix(0,1) = -sin(angle * M_PI / 180);
-  _matrix(1,0) =  sin(angle * M_PI / 180);
+
   _matrix(1,1) =  cos(angle * M_PI / 180);
+  _matrix(1,2) = -sin(angle * M_PI / 180);
+  _matrix(2,1) =  sin(angle * M_PI / 180);
+  _matrix(2,2) =  cos(angle * M_PI / 180);
 
   return _matrix;
 }
@@ -67,3 +68,24 @@ cv::Mat Inverse::linearTransform(cv::Mat img) {
 
    return img;
 }
+
+
+cv::Mat Inverse::normalizeBack(cv::Mat img) {
+    double r{0},b{0},g{0};
+    cv::MatIterator_<cv::Vec3d> itd = img.begin<cv::Vec3d>(), itd_end = img.end<cv::Vec3d>();
+    for(int i = 0; itd != itd_end; ++itd,++i)
+    {    
+      
+    r = pow((static_cast<double>((*itd)(0)) / 255.0),(2.2));
+    g = pow((static_cast<double>((*itd)(1)) / 255.0),(2.2));
+    b = pow((static_cast<double>((*itd)(2)) / 255.0),(2.2));
+
+    (*itd)[0] = r * 255.0;
+    (*itd)[1] = g * 255.0;
+    (*itd)[2] = b * 255.0;
+    }
+       img.convertTo(img, CV_8UC3);
+
+    return img;
+    
+} 

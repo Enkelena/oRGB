@@ -40,8 +40,7 @@ cv::Mat ConvertTooRGB::linearTransform(cv::Mat img) {
      (*itd)[1]=(_local[1]);
       (*itd)[2]=(_local[2]);
    }
-         img.convertTo(img, CV_8UC3);
-
+   //  img.convertTo(img, CV_8UC3);
 
    return img;
 }
@@ -53,13 +52,10 @@ Eigen::Matrix3d ConvertTooRGB::rotatePoint(double angle) {
                        0, 1, 0,
                        0, 0, 1;
 
-
 //   _matrix(0,0) =  cos(angle * M_PI / 180);
 //   _matrix(0,1) = -sin(angle * M_PI / 180);
 //   _matrix(1,0) =  sin(angle * M_PI / 180);
 //   _matrix(1,1) =  cos(angle * M_PI / 180);
-
-
 
   _matrix(1,1) =  cos(angle * M_PI / 180);
   _matrix(1,2) = -sin(angle * M_PI / 180);
@@ -87,13 +83,14 @@ cv::Mat ConvertTooRGB::fullRotation(cv::Mat img) {
       else if((theta>= (M_PI /3)) && (theta <=M_PI)) {
          newTheta = M_PI/2 + 3/4*(theta-M_PI/3);   
       } 
+
           thetaAngle=(newTheta-theta);
-   
-//   this->angleTheta = thetaAngle;
-//  return thetaAngle;
+         // std::cout<<("kendi:", thetaAngle)<<std::endl;
  Eigen::Vector3d _local {(*itd)[0], (*itd)[1], (*itd)[2]};
  _local = rotatePoint(thetaAngle) * _local;
  }
+         //  img.convertTo(img, CV_8UC3);
+
     return img;
 }
 
@@ -106,7 +103,7 @@ cv::Mat ConvertTooRGB::fullRotation(cv::Mat img) {
 
 
 
-// not needed anymore as it has all been implemented at 
+// not needed anymore as it has all been implemented at another function above
 
 // cv::Mat ConvertTooRGB::applyRotation(cv::Mat img) {
 

@@ -26,7 +26,7 @@ class Inverse {
  * @brief Function that normalizes the values
  *  
  */
-   cv::Mat normalize(cv::Mat img);
+   cv::Mat normalizeBack(cv::Mat img);
 
 
 /**

@@ -38,10 +38,8 @@ cv::cvtColor(img, img, cv::COLOR_BGR2RGB);
 
 //--------------------------------------------------------
   cv::namedWindow( "Result", cv::WINDOW_FULLSCREEN);
-  //reducing_color(img);
   cv::imshow("Result", img);  
  
- // reducing_color(img);
   std::cout << "Press any key to close ..." << std::endl;
   cv::waitKey(0);
   cv::destroyAllWindows();

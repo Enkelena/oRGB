@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['normalize_4',['normalize',['../classConvertTooRGB.html#ac2289bab2a6a961253210c5ddf950250',1,'ConvertTooRGB::normalize()'],['../classInverse.html#acf6492374ad55f41ea024071af502de3',1,'Inverse::normalize()']]]
+  ['normalize_4',['normalize',['../classConvertTooRGB.html#ac2289bab2a6a961253210c5ddf950250',1,'ConvertTooRGB']]],
+  ['normalizeback_5',['normalizeBack',['../classInverse.html#af53f3702bc6112f88bc2474378a60518',1,'Inverse']]]
 ];

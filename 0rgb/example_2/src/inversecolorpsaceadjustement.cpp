@@ -22,25 +22,28 @@ cv::Mat Inverse::fullRotation(cv::Mat img) {
    double thetaAngle=0;
    for( itd=img.begin<cv::Vec3d>(); itd!= img.end<cv::Vec3d>();++itd) {
 
-      double b=(*itd)[0];
+      double r=(*itd)[0];
       double g=(*itd)[1];
-      double r=(*itd)[2];
-      double theta = atan2(r, g);
+      double b=(*itd)[2];
+      double theta = atan2(b, g);
       double newTheta=0;
    
       if (theta< M_PI / 2) {
          newTheta = (2/3)*theta;
       }
 
-      else if((theta>= (M_PI /3)) && (theta <=M_PI)) {
+      if((theta>= (M_PI /3)) && (theta <=M_PI)) {
          newTheta = M_PI/3 + 4/3*(theta-M_PI/2);   
       } 
-          thetaAngle=(newTheta-theta);
    
-//   this->angleTheta = thetaAngle;
-//  return thetaAngle;
- Eigen::Vector3d _local {(*itd)[0], (*itd)[1], (*itd)[2]};
- _local = rotatePoint(thetaAngle) * _local;
+      thetaAngle=(newTheta-theta);
+   
+      Eigen::Vector3d _local {r,g,b};
+      _local = rotatePoint(thetaAngle) * _local;
+
+      (*itd)[0] = _local[0];
+      (*itd)[1] = _local[1];
+      (*itd)[2] = _local[2];
  }
     return img;
 }

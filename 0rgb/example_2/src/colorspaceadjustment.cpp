@@ -66,13 +66,14 @@ Eigen::Matrix3d ConvertTooRGB::rotatePoint(double angle) {
 }
 
 cv::Mat ConvertTooRGB::fullRotation(cv::Mat img) {
+    double thetaAngle=0;
+    double r{0},b{0},g{0};
    cv::MatIterator_<cv::Vec3d> itd, end;
-   double thetaAngle=0;
    for( itd=img.begin<cv::Vec3d>(); itd!= img.end<cv::Vec3d>();++itd) {
 
-      double r=(*itd)[0];
-      double g=(*itd)[1];
-      double b=(*itd)[2];
+       r=(*itd)[0];
+       g=(*itd)[1];
+       b=(*itd)[2];
       double theta = atan2(b, g);
       double newTheta=0;
    
@@ -80,7 +81,7 @@ cv::Mat ConvertTooRGB::fullRotation(cv::Mat img) {
          newTheta = (3/2)*theta;
       }
 
-      else if((theta>= (M_PI /3)) && (theta <=M_PI)) {
+      if((theta>= (M_PI /3)) && (theta <=M_PI)) {
          newTheta = M_PI/2 + 3/4*(theta-M_PI/3);   
       } 
       
@@ -90,14 +91,24 @@ cv::Mat ConvertTooRGB::fullRotation(cv::Mat img) {
       Eigen::Vector3d _local {r,g,b};
       _local = rotatePoint(thetaAngle) * _local;
 
-      (*itd)[0] = _local[0];
-      (*itd)[1] = _local[1];
-      (*itd)[2] = _local[2];
+      (*itd)[0]=(_local[0]);        
+     (*itd)[1]=(_local[1]);
+      (*itd)[2]=(_local[2]);
  }
          //  img.convertTo(img, CV_8UC3);
     return img;
 }
 
+
+cv::Mat ConvertTooRGB::filter(double cyb, double crg, cv::Mat img) {
+ cv::MatIterator_<cv::Vec3d> itd, end;
+   for( itd=img.begin<cv::Vec3d>(); itd!= img.end<cv::Vec3d>();++itd) {
+
+   (*itd)[1]= -cyb;
+      (*itd)[2]=-crg;
+}
+return img;
+}
 
 
 // double ConvertTooRGB::getAngle()

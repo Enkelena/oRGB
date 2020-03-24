@@ -28,7 +28,8 @@ cv::cvtColor(img, img, cv::COLOR_BGR2RGB);
   img=firstConvert.normalize(img);
   img =firstConvert.linearTransform(img);
    img=firstConvert.fullRotation(img);  
-   img=inv.fullRotation(img);
+   img = firstConvert.filter(0.0, 0.3, img);
+    img=inv.fullRotation(img);
     img = inv.linearTransform(img);
     img = inv.normalizeBack(img);
     

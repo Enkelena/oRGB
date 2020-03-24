@@ -57,6 +57,8 @@ class ConvertTooRGB {
    // double getAngle();
     //cv::Mat applyRotation(cv::Mat img);
 
+cv::Mat filter(double cb, double crg, cv::Mat img);
+
 
 };
 

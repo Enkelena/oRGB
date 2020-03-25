@@ -13,9 +13,9 @@ cv::Mat ConvertTooRGB::normalize(cv::Mat img) {
     g = pow((static_cast<double>((*itd)(1)) / 255.0),(1/2.2));
     b = pow((static_cast<double>((*itd)(2)) / 255.0),(1/2.2));
 
-    (*itd)[0] = r * 255.0;
-    (*itd)[1] = g * 255.0;
-    (*itd)[2] = b * 255.0;
+    (*itd)[0] = r*255.0;
+    (*itd)[1] = g*255.0;
+    (*itd)[2] = b*255.0;
     }
    
     return img;
@@ -109,8 +109,8 @@ cv::Mat ConvertTooRGB::filter(double cyb, double crg, cv::Mat img) {
    for( itd=img.begin<cv::Vec3d>(); itd!= img.end<cv::Vec3d>();++itd) {
 
       (*itd)[0]=(*itd)[0];
-      (*itd)[1]= -cyb;
-      (*itd)[2]=-crg;
+      (*itd)[1]= (*itd)[1]-cyb;
+      (*itd)[2]= (*itd)[2]-crg;
    }
 
    return img;

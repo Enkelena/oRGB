@@ -15,9 +15,9 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
- * [OpenCV library](https://opencv.org/) : Open Source Computer Vision Library.
- * [Eigen library](https://gitlab.com/libeigen/eigen) :  C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms.
- * [Google test library](https://github.com/google/googletest) : Google Test is a unit testing library for the C++ programming language, based on the xUnit architecture. 
+ * [OpenCV](https://opencv.org/) : Open Source Computer Vision Library.
+ * [Eigen](https://gitlab.com/libeigen/eigen) :  C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms.
+ * [GoogleTest](https://github.com/google/googletest) : Google Test is a unit testing library for the C++ programming language, based on the xUnit architecture. 
  * [Doxygen](http://www.doxygen.nl/) : Doxygen is the de facto standard tool for generating documentation from annotated C++ sources.
 ```
 

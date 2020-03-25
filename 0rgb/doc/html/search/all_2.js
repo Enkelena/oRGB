@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inverse_2',['Inverse',['../classInverse.html',1,'']]]
+  ['inverse_3',['Inverse',['../classInverse.html',1,'']]]
 ];

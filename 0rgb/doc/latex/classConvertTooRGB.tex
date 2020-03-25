@@ -19,7 +19,9 @@ cv\+::\+Mat \mbox{\hyperlink{classConvertTooRGB_abb3c4e226cd6c4f9d97e80722e012b3
 Eigen\+::\+Matrix3d \mbox{\hyperlink{classConvertTooRGB_accad25adf5da9822dab00389be56d67f}{rotate\+Point}} (double angle)
 \begin{DoxyCompactList}\small\item\em contains a matrix of rotation, that we will use to rotate a vector in the next function \end{DoxyCompactList}\item 
 cv\+::\+Mat \mbox{\hyperlink{classConvertTooRGB_a5277be417027292de20e6d751a9abb21}{full\+Rotation}} (cv\+::\+Mat img)
-\begin{DoxyCompactList}\small\item\em based on the angle taken from the vector of the loaded image, it rotates that vector using the previous rotate\+Point function \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em based on the angle taken from the vector of the loaded image, it rotates that vector using the previous rotate\+Point function \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{classConvertTooRGB_ab554ed09c3a6a4a360a8e324adc56d7a}{filter}} (double cb, double crg, cv\+::\+Mat img)
+\begin{DoxyCompactList}\small\item\em It changes the values of ths second and third vector of the image. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -28,6 +30,28 @@ Class that contains the functions to fully create the color space \char`\"{}o\+R
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classConvertTooRGB_ab554ed09c3a6a4a360a8e324adc56d7a}\label{classConvertTooRGB_ab554ed09c3a6a4a360a8e324adc56d7a}} 
+\index{ConvertTooRGB@{ConvertTooRGB}!filter@{filter}}
+\index{filter@{filter}!ConvertTooRGB@{ConvertTooRGB}}
+\doxysubsubsection{\texorpdfstring{filter()}{filter()}}
+{\footnotesize\ttfamily cv\+::\+Mat Convert\+Too\+R\+G\+B\+::filter (\begin{DoxyParamCaption}\item[{double}]{cb,  }\item[{double}]{crg,  }\item[{cv\+::\+Mat}]{img }\end{DoxyParamCaption})}
+
+
+
+It changes the values of ths second and third vector of the image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & \\
+\hline
+{\em crg} & \\
+\hline
+{\em img} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cv\+::\+Mat 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classConvertTooRGB_a5277be417027292de20e6d751a9abb21}\label{classConvertTooRGB_a5277be417027292de20e6d751a9abb21}} 
 \index{ConvertTooRGB@{ConvertTooRGB}!fullRotation@{fullRotation}}
 \index{fullRotation@{fullRotation}!ConvertTooRGB@{ConvertTooRGB}}

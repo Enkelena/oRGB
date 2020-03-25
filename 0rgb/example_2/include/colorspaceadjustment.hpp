@@ -54,9 +54,14 @@ class ConvertTooRGB {
  */
     cv::Mat fullRotation(cv::Mat img);
 
-   // double getAngle();
-    //cv::Mat applyRotation(cv::Mat img);
-
+/**
+ * @brief It changes the values of ths second and third vector of the image
+ * 
+ * @param cb 
+ * @param crg 
+ * @param img 
+ * @return cv::Mat 
+ */
 cv::Mat filter(double cb, double crg, cv::Mat img);
 
 

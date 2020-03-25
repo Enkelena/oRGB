@@ -88,6 +88,7 @@ After the binaries have been built, you can use
 make install
 ```
 
+### Download our code
 Now download the actual code from this same repository
 ```
 git clone git@github.com:Enkelena/oRGB.git

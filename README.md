@@ -21,11 +21,11 @@ What things you need to install the software and how to install them
  * [Doxygen](http://www.doxygen.nl/) : Doxygen is the de facto standard tool for generating documentation from annotated C++ sources.
 ```
 
-### Installing
+## Installing
 
 A step by step series of examples that tell you how to get a development env running
 
-Installing OpenCV library
+### Installing OpenCV library
 
 Required packages
 
@@ -50,14 +50,14 @@ Build. From build directory execute make, it is recommended to do this in severa
 ```
 make -j4 # runs 4 jobs in parallel
 ```
-Installing Eigen library
+### Installing Eigen library
 Eigen doesn't have any dependencies other than the C++ standard library. 
 ```
 cd ~/<my_working_directory>
 git clone https://gitlab.com/libeigen/eigen.git
 ```
 
-Installing Google test libray
+### Installing Google test libray
 
 Requirments
 ```
@@ -69,7 +69,7 @@ Cloning
 git clone https://github.com/google/googletest.git
 ```
 
-Installing Doxygen for documentation
+### Installing Doxygen for documentation
 
 Cloning
 ```

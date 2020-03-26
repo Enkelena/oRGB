@@ -22,15 +22,10 @@ class Inverse {
   Inverse(void) = default;
 
 
-/**
- * @brief Function that normalizes the values
- *  
- */
-   cv::Mat normalizeBack(cv::Mat img);
 
 
 /**
- * @brief function that returns a vector after it has been multiplied with a specific matrix given because of the formula
+ * @brief function that returns a vector after it has been multiplied with a specific matrix given because of the formula. Also it normalizes the values
  * 
  * @param img 
  * @return cv::Mat 

@@ -1,38 +1,38 @@
 #include "colorspaceadjustment.hpp"
 
-cv::Mat ConvertTooRGB::normalize(cv::Mat img) {
-
-    img.convertTo(img, CV_64FC3);
+cv::Mat ConvertTooRGB::normalize(cv::Mat img)
+{
+ cv::Mat img1 = img.clone();
+    img1.convertTo(img1, CV_64FC3);
     double r{0},b{0},g{0};
 
-    cv::MatIterator_<cv::Vec3d> itd = img.begin<cv::Vec3d>(), itd_end = img.end<cv::Vec3d>();
+    cv::MatIterator_<cv::Vec3d> itd = img1.begin<cv::Vec3d>(), itd_end = img1.end<cv::Vec3d>();
     for(int i = 0; itd != itd_end; ++itd,++i)
-    {    
-      
-    r = pow((static_cast<double>((*itd)(0)) / 255.0),(1/2.2));
-    g = pow((static_cast<double>((*itd)(1)) / 255.0),(1/2.2));
-    b = pow((static_cast<double>((*itd)(2)) / 255.0),(1/2.2));
+    {          
+      r = pow((static_cast<double>((*itd)(0)) / 255.0),(1/2.2));
+      g = pow((static_cast<double>((*itd)(1)) / 255.0),(1/2.2));
+      b = pow((static_cast<double>((*itd)(2)) / 255.0),(1/2.2));
 
-    (*itd)[0] = r*255.0;
-    (*itd)[1] = g*255.0;
-    (*itd)[2] = b*255.0;
-    }
-   
-    return img;
+      (*itd)[0] = r;
+      (*itd)[1] = g;
+      (*itd)[2] = b;
+    }   
+    return img1;
 } 
 
-cv::Mat ConvertTooRGB::linearTransform(cv::Mat img) {
+cv::Mat ConvertTooRGB::linearTransform(cv::Mat img) 
+{
+   Eigen::Matrix3d linear_matrix;
 
-     Eigen::Matrix3d linear_matrix;
-
-      linear_matrix << 0.2990, 0.5870, 0.1140, 
+   linear_matrix << 0.2990, 0.5870, 0.1140, 
                        0.5000, 0.5000, -1.0000,
                        0.8660, -0.8660, 0.0000;
 
-      double r{0},b{0},g{0};
+   double r{0},b{0},g{0};
+   cv::Mat img1 = img.clone();
 
    cv::MatIterator_<cv::Vec3d> itd, end;
-   for( itd=img.begin<cv::Vec3d>(); itd!= img.end<cv::Vec3d>();++itd) {
+   for( itd=img1.begin<cv::Vec3d>(); itd!= img1.end<cv::Vec3d>();++itd) {
 
       r= (*itd)[0];
       g= (*itd)[1];
@@ -46,14 +46,12 @@ cv::Mat ConvertTooRGB::linearTransform(cv::Mat img) {
       (*itd)[1]=(_local[1]);
       (*itd)[2]=(_local[2]);
    }
-   //  img.convertTo(img, CV_8UC3);
-
-   return img;
+   return img1;
 }
 
 
-Eigen::Matrix3d ConvertTooRGB::rotatePoint(double angle) { 
-
+Eigen::Matrix3d ConvertTooRGB::rotatePoint(double angle)
+ {
    Eigen::Matrix3d _matrix;
             _matrix << 1, 0, 0, 
                        0, 1, 0,
@@ -68,15 +66,18 @@ Eigen::Matrix3d ConvertTooRGB::rotatePoint(double angle) {
 }
 
 
-cv::Mat ConvertTooRGB::fullRotation(cv::Mat img) {
-    double thetaAngle=0;
-    double r{0},b{0},g{0};
-   cv::MatIterator_<cv::Vec3d> itd, end;
-   for( itd=img.begin<cv::Vec3d>(); itd!= img.end<cv::Vec3d>();++itd) {
+cv::Mat ConvertTooRGB::fullRotation(cv::Mat img) 
+{
+   cv::Mat img1 = img.clone();
+   double thetaAngle=0;
+   double r{0},b{0},g{0};
 
-       r=(*itd)[0];
-       g=(*itd)[1];
-       b=(*itd)[2];
+   cv::MatIterator_<cv::Vec3d> itd, end;
+   for(itd=img1.begin<cv::Vec3d>(); itd!= img1.end<cv::Vec3d>();++itd) 
+   {
+      r=(*itd)[0];
+      g=(*itd)[1];
+      b=(*itd)[2];
       double theta = atan2(b, g);
       double newTheta=0;
    
@@ -84,10 +85,14 @@ cv::Mat ConvertTooRGB::fullRotation(cv::Mat img) {
          newTheta = (3/2)*theta;
       }
 
-      if((theta>= (M_PI /3)) && (theta <=M_PI)) {
+      if((theta>= (M_PI /3)) && (theta <=(5*M_PI/3))) {
          newTheta = (M_PI/2 + 3/4*(theta-M_PI/3));   
       } 
-      
+
+      if((theta> 5*M_PI / 3) && (theta <(2*M_PI)) ) {
+         newTheta = (3/2)*theta;
+      }
+
       thetaAngle=(newTheta-theta);
       // std::cout<<("kendi:", thetaAngle)<<std::endl;
  
@@ -99,19 +104,37 @@ cv::Mat ConvertTooRGB::fullRotation(cv::Mat img) {
       (*itd)[2]=(_local[2]);
    }
          //  img.convertTo(img, CV_8UC3);
-    return img;
+   return img1;
 }
 
 
 cv::Mat ConvertTooRGB::filter(double cyb, double crg, cv::Mat img) {
 
- cv::MatIterator_<cv::Vec3d> itd, end;
-   for( itd=img.begin<cv::Vec3d>(); itd!= img.end<cv::Vec3d>();++itd) {
+   cv::Mat img1 = img.clone();
+   cv::MatIterator_<cv::Vec3d> itd, end;
+   for( itd=img1.begin<cv::Vec3d>(); itd!= img1.end<cv::Vec3d>();++itd) 
+   { 
 
-      (*itd)[0]=(*itd)[0];
-      (*itd)[1]= (*itd)[1]-cyb;
-      (*itd)[2]= (*itd)[2]-crg;
+
+      if(((*itd)[2] -=cyb)<-1)
+      {
+         (*itd)[2] =-1.0;
+      }
+         
+      if(((*itd)[2] -=cyb)>1) 
+      {
+         (*itd)[2] =1.0;
+      }
+
+      if(((*itd)[1] -=crg)<-1)
+      {
+         (*itd)[1] =-1.0;
+      }
+
+      if(((*itd)[1] -=crg)>1) 
+      {
+         (*itd)[1] =1.0;
+      }
    }
-
-   return img;
+   return img1;
 }

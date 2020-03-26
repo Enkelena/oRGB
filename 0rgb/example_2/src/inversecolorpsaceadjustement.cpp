@@ -17,10 +17,11 @@ Eigen::Matrix3d Inverse::rotatePoint(double angle) {
 
 
 cv::Mat Inverse::fullRotation(cv::Mat img) {
-  double thetaAngle=0;
-    double r{0},b{0},g{0};
+   cv::Mat img1 = img.clone();
+   double thetaAngle=0;
+   double r{0},b{0},g{0};
    cv::MatIterator_<cv::Vec3d> itd, end;
-   for( itd=img.begin<cv::Vec3d>(); itd!= img.end<cv::Vec3d>();++itd) {
+   for( itd=img1.begin<cv::Vec3d>(); itd!= img1.end<cv::Vec3d>();++itd) {
 
        r=(*itd)[0];
        g=(*itd)[1];
@@ -33,9 +34,13 @@ cv::Mat Inverse::fullRotation(cv::Mat img) {
          newTheta = (2/3)*theta;
       }
 
-      if((theta>= (M_PI /3)) && (theta <=M_PI)) {
+       if((theta>= (M_PI /3)) && (theta <=(5*M_PI/3)))  {
          newTheta = M_PI/3 + 4/3*(theta-M_PI/2);   
       } 
+
+      if((theta> 5*M_PI / 3) && (theta <(2*M_PI)) ) {
+         newTheta = (2/3)*theta;
+      }
    
       thetaAngle=(newTheta-theta);
    
@@ -46,49 +51,36 @@ cv::Mat Inverse::fullRotation(cv::Mat img) {
       (*itd)[1]=(_local[1]);
       (*itd)[2]=(_local[2]);
  }
-    return img;
+    return img1;
 }
 
 
 cv::Mat Inverse::linearTransform(cv::Mat img) {
-
+       cv::Mat img1 = img.clone();
       Eigen::Matrix3d linear_matrix;
 
       linear_matrix << 1.0000, 0.1140, 0.7436,
       1.0000, 0.1140, -0.4111,
       1.0000, -0.8860,0.1663;
 
-      cv::MatIterator_<cv::Vec3d> itd, end;
-      for( itd=img.begin<cv::Vec3d>(); itd!= img.end<cv::Vec3d>();++itd) {
+      double gamma = 2.2f;
 
+      cv::MatIterator_<cv::Vec3d> itd, end;
+      for( itd=img1.begin<cv::Vec3d>(); itd!= img1.end<cv::Vec3d>();++itd) 
+      {
          Eigen::Vector3d _local {(*itd)[0], (*itd)[1], (*itd)[2]};
 
          _local = linear_matrix * _local;
 
-         (*itd)[0]=(_local(0));
-         (*itd)[1]=(_local(1));
-         (*itd)[2]=(_local(2));
-   }
+         (*itd)[0]=(_local(0))*255;
+         (*itd)[1]=(_local(1))*255;
+         (*itd)[2]=(_local(2))*255;
 
-   return img;
+         (*itd)[0] = pow((static_cast <double>((*itd)[0]) / 255.0 ),gamma)*255;
+         (*itd)[1] = pow((static_cast <double>((*itd)[1]) / 255.0 ),gamma)*255;
+         (*itd)[2] = pow((static_cast <double>((*itd)[2]) / 255.0 ),gamma)*255; 
+       }
+    img1.convertTo(img1, CV_8UC3);
+   return img1;
 }  
 
-
-cv::Mat Inverse::normalizeBack(cv::Mat img) {
-    double r{0},b{0},g{0};
-    cv::MatIterator_<cv::Vec3d> itd = img.begin<cv::Vec3d>(), itd_end = img.end<cv::Vec3d>();
-    for(int i = 0; itd != itd_end; ++itd,++i) {     
-      
-    r = pow((static_cast<double>((*itd)(0)) / 255.0),(2.2));
-    g = pow((static_cast<double>((*itd)(1)) / 255.0),(2.2));
-    b = pow((static_cast<double>((*itd)(2)) / 255.0),(2.2));
-
-    (*itd)[0] = r * 255.0;
-    (*itd)[1] = g * 255.0;
-    (*itd)[2] = b * 255.0;
-    }
-
-    img.convertTo(img, CV_8UC3);
-    return img;
-    
-} 

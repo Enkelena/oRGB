@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
 
    ConvertTooRGB firstConvert;
   
-   std::string path = "/home/solaborate/Downloads/lena.png";
+   std::string path = "/home/solaborate/Downloads/pot.jpg";
    cv::Mat img = cv::imread(path, cv::IMREAD_COLOR);
    cv::cvtColor(img, img, cv::COLOR_BGR2RGB);
 
@@ -26,10 +26,10 @@ int main(int argc, char *argv[]) {
   img=firstConvert.normalize(img);
   img =firstConvert.linearTransform(img);
   img=firstConvert.fullRotation(img);  
-  img = firstConvert.filter(0.0, 0.3, img);
+  img = firstConvert.filter(0.0, 0.0, img);
   img=inv.fullRotation(img);
   img = inv.linearTransform(img);
-  img = inv.normalizeBack(img);
+  //img = inv.normalizeBack(img);
   
    cv::cvtColor(img, img, cv::COLOR_RGB2BGR);
   

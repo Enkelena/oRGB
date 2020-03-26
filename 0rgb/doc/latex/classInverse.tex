@@ -12,10 +12,8 @@ Class to bring back the R\+GB color space from the o\+R\+GB.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-cv\+::\+Mat \mbox{\hyperlink{classInverse_af53f3702bc6112f88bc2474378a60518}{normalize\+Back}} (cv\+::\+Mat img)
-\begin{DoxyCompactList}\small\item\em Function that normalizes the values. \end{DoxyCompactList}\item 
 cv\+::\+Mat \mbox{\hyperlink{classInverse_a6e9249d396012c5db2f08d6d754a6691}{linear\+Transform}} (cv\+::\+Mat img)
-\begin{DoxyCompactList}\small\item\em function that returns a vector after it has been multiplied with a specific matrix given because of the formula \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em function that returns a vector after it has been multiplied with a specific matrix given because of the formula. Also it normalizes the values \end{DoxyCompactList}\item 
 Eigen\+::\+Matrix3d \mbox{\hyperlink{classInverse_add023ec728fc3da800ecf6febf9fc1b6}{rotate\+Point}} (double angle)
 \begin{DoxyCompactList}\small\item\em contains a matrix of rotation, that we will use to rotate a vector in the next function. \end{DoxyCompactList}\item 
 cv\+::\+Mat \mbox{\hyperlink{classInverse_a98fb9203a592921ed60e6292834a42db}{full\+Rotation}} (cv\+::\+Mat img)
@@ -54,7 +52,7 @@ cv\+::\+Mat
 
 
 
-function that returns a vector after it has been multiplied with a specific matrix given because of the formula 
+function that returns a vector after it has been multiplied with a specific matrix given because of the formula. Also it normalizes the values 
 
 
 \begin{DoxyParams}{Parameters}
@@ -64,16 +62,6 @@ function that returns a vector after it has been multiplied with a specific matr
 \begin{DoxyReturn}{Returns}
 cv\+::\+Mat 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classInverse_af53f3702bc6112f88bc2474378a60518}\label{classInverse_af53f3702bc6112f88bc2474378a60518}} 
-\index{Inverse@{Inverse}!normalizeBack@{normalizeBack}}
-\index{normalizeBack@{normalizeBack}!Inverse@{Inverse}}
-\doxysubsubsection{\texorpdfstring{normalizeBack()}{normalizeBack()}}
-{\footnotesize\ttfamily cv\+::\+Mat Inverse\+::normalize\+Back (\begin{DoxyParamCaption}\item[{cv\+::\+Mat}]{img }\end{DoxyParamCaption})}
-
-
-
-Function that normalizes the values. 
-
 \mbox{\Hypertarget{classInverse_add023ec728fc3da800ecf6febf9fc1b6}\label{classInverse_add023ec728fc3da800ecf6febf9fc1b6}} 
 \index{Inverse@{Inverse}!rotatePoint@{rotatePoint}}
 \index{rotatePoint@{rotatePoint}!Inverse@{Inverse}}

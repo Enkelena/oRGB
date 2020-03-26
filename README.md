@@ -92,6 +92,8 @@ Now download the actual code from this same repository
 ```
 git clone git@github.com:Enkelena/oRGB.git
 ```
+On the main.cpp, line 13 where the path is written, please put the path of an image of your own
+Use cmake to build this project.
 ## Authors
 
 * **Enkelena H** 

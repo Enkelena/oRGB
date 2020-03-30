@@ -62,8 +62,12 @@ class ConvertTooRGB {
  * @param img 
  * @return cv::Mat 
  */
-cv::Mat filter(double cb, double crg, cv::Mat img);
 
+
+cv::Mat filter(double cb, double crg, cv::Mat img);
+enum  channel {L, Cyb, Crg};
+
+cv::Mat channelExtraction( cv::Mat img, channel c); 
 
 };
 

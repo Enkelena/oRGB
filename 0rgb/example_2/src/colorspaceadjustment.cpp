@@ -108,6 +108,35 @@ cv::Mat ConvertTooRGB::fullRotation(cv::Mat img)
 }
 
 
+// cv::Mat ConvertTooRGB::filter(double cyb, double crg, cv::Mat img) {
+
+//    cv::Mat img1 = img.clone();
+//    cv::MatIterator_<cv::Vec3d> itd, end;
+//    for( itd=img1.begin<cv::Vec3d>(); itd!= img1.end<cv::Vec3d>();++itd) 
+//    { 
+//       if(((*itd)[2] -=cyb)<-1)
+//       {
+//          (*itd)[2] =-1.0;
+//       }
+         
+//       if(((*itd)[2] -=cyb)>1) 
+//       {
+//          (*itd)[2] =1.0;
+//       }
+
+//       if(((*itd)[1] -=crg)<-1)
+//       {
+//          (*itd)[1] =-1.0;
+//       }
+
+//       if(((*itd)[1] -=crg)>1) 
+//       {
+//          (*itd)[1] =1.0;
+//       }
+//    }
+//    return img1;
+// }
+
 cv::Mat ConvertTooRGB::filter(double cyb, double crg, cv::Mat img) {
 
    cv::Mat img1 = img.clone();
@@ -138,3 +167,39 @@ cv::Mat ConvertTooRGB::filter(double cyb, double crg, cv::Mat img) {
    }
    return img1;
 }
+
+
+cv::Mat ConvertTooRGB::channelExtraction( cv::Mat img, channel c) { 
+
+   cv::Mat img1 = img.clone();
+   cv::MatIterator_<cv::Vec3d> itd, end;
+   for( itd=img1.begin<cv::Vec3d>(); itd!= img1.end<cv::Vec3d>();++itd) 
+   { 
+     // ConvertTooRGB::channel c; 
+
+      switch (c)
+      {
+      case  L:
+       (*itd)[0] =  (*itd)[0];
+       (*itd)[1]=0;
+       (*itd)[2]=0;
+         break;
+
+        case  Cyb:
+       (*itd)[0] =  0;
+       (*itd)[1]=(*itd)[1];
+       (*itd)[2]=0;
+         break;
+
+       case  Crg:
+       (*itd)[0] = 0;
+       (*itd)[1]=0;
+       (*itd)[2]=(*itd)[2];
+         break;
+
+      default:
+      std::cout << "Invalid Selection\n";
+         break;
+      }
+}    
+return img1; }

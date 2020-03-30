@@ -22,8 +22,6 @@ class Inverse {
   Inverse(void) = default;
 
 
-
-
 /**
  * @brief function that returns a vector after it has been multiplied with a specific matrix given because of the formula. Also it normalizes the values
  * 

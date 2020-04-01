@@ -12,12 +12,13 @@ Class to bring back the R\+GB color space from the o\+R\+GB.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-cv\+::\+Mat \mbox{\hyperlink{classInverse_a6e9249d396012c5db2f08d6d754a6691}{linear\+Transform}} (cv\+::\+Mat img)
-\begin{DoxyCompactList}\small\item\em function that returns a vector after it has been multiplied with a specific matrix given because of the formula. Also it normalizes the values \end{DoxyCompactList}\item 
 Eigen\+::\+Matrix3d \mbox{\hyperlink{classInverse_add023ec728fc3da800ecf6febf9fc1b6}{rotate\+Point}} (double angle)
 \begin{DoxyCompactList}\small\item\em contains a matrix of rotation, that we will use to rotate a vector in the next function. \end{DoxyCompactList}\item 
-cv\+::\+Mat \mbox{\hyperlink{classInverse_a98fb9203a592921ed60e6292834a42db}{full\+Rotation}} (cv\+::\+Mat img)
-\begin{DoxyCompactList}\small\item\em based on the angle taken from the vector of the loaded image, it rotates that vector using the previous rotate\+Point function \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classInverse_a17b8cda4967f8fce91d8a7b8c3996551}\label{classInverse_a17b8cda4967f8fce91d8a7b8c3996551}} 
+cv\+::\+Mat {\bfseries full\+Rotation} (cv\+::\+Mat img1)
+\item 
+cv\+::\+Mat \mbox{\hyperlink{classInverse_a97af8ed98a679cbffb23f6401e6b3f9f}{setlinear\+Image}} (cv\+::\+Mat img1)
+\begin{DoxyCompactList}\small\item\em function that returns a vector after it has been multiplied with a specific matrix given because of the formula. Also it normalizes the values \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -26,42 +27,6 @@ Class to bring back the R\+GB color space from the o\+R\+GB.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classInverse_a98fb9203a592921ed60e6292834a42db}\label{classInverse_a98fb9203a592921ed60e6292834a42db}} 
-\index{Inverse@{Inverse}!fullRotation@{fullRotation}}
-\index{fullRotation@{fullRotation}!Inverse@{Inverse}}
-\doxysubsubsection{\texorpdfstring{fullRotation()}{fullRotation()}}
-{\footnotesize\ttfamily cv\+::\+Mat Inverse\+::full\+Rotation (\begin{DoxyParamCaption}\item[{cv\+::\+Mat}]{img }\end{DoxyParamCaption})}
-
-
-
-based on the angle taken from the vector of the loaded image, it rotates that vector using the previous rotate\+Point function 
-
-
-\begin{DoxyParams}{Parameters}
-{\em img} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-cv\+::\+Mat 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classInverse_a6e9249d396012c5db2f08d6d754a6691}\label{classInverse_a6e9249d396012c5db2f08d6d754a6691}} 
-\index{Inverse@{Inverse}!linearTransform@{linearTransform}}
-\index{linearTransform@{linearTransform}!Inverse@{Inverse}}
-\doxysubsubsection{\texorpdfstring{linearTransform()}{linearTransform()}}
-{\footnotesize\ttfamily cv\+::\+Mat Inverse\+::linear\+Transform (\begin{DoxyParamCaption}\item[{cv\+::\+Mat}]{img }\end{DoxyParamCaption})}
-
-
-
-function that returns a vector after it has been multiplied with a specific matrix given because of the formula. Also it normalizes the values 
-
-
-\begin{DoxyParams}{Parameters}
-{\em img} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-cv\+::\+Mat 
-\end{DoxyReturn}
 \mbox{\Hypertarget{classInverse_add023ec728fc3da800ecf6febf9fc1b6}\label{classInverse_add023ec728fc3da800ecf6febf9fc1b6}} 
 \index{Inverse@{Inverse}!rotatePoint@{rotatePoint}}
 \index{rotatePoint@{rotatePoint}!Inverse@{Inverse}}
@@ -79,6 +44,24 @@ contains a matrix of rotation, that we will use to rotate a vector in the next f
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Eigen\+::\+Matrix3d 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInverse_a97af8ed98a679cbffb23f6401e6b3f9f}\label{classInverse_a97af8ed98a679cbffb23f6401e6b3f9f}} 
+\index{Inverse@{Inverse}!setlinearImage@{setlinearImage}}
+\index{setlinearImage@{setlinearImage}!Inverse@{Inverse}}
+\doxysubsubsection{\texorpdfstring{setlinearImage()}{setlinearImage()}}
+{\footnotesize\ttfamily cv\+::\+Mat Inverse\+::setlinear\+Image (\begin{DoxyParamCaption}\item[{cv\+::\+Mat}]{img1 }\end{DoxyParamCaption})}
+
+
+
+function that returns a vector after it has been multiplied with a specific matrix given because of the formula. Also it normalizes the values 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cv\+::\+Mat 
 \end{DoxyReturn}
 
 

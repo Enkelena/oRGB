@@ -1,6 +1,5 @@
 #include "inversecolorpsaceadjustement.hpp"
 
-
 Eigen::Matrix3d Inverse::rotatePoint(double angle) { 
      Eigen::Matrix3d _matrix;
             _matrix << 1, 0, 0, 
@@ -16,16 +15,16 @@ Eigen::Matrix3d Inverse::rotatePoint(double angle) {
 }
 
 
-cv::Mat Inverse::fullRotation(cv::Mat img) {
-   cv::Mat img1 = img.clone();
+cv::Mat Inverse::fullRotation(cv::Mat img1) 
+{   
    double thetaAngle=0;
    double r{0},b{0},g{0};
    cv::MatIterator_<cv::Vec3d> itd, end;
    for( itd=img1.begin<cv::Vec3d>(); itd!= img1.end<cv::Vec3d>();++itd) {
 
-       r=(*itd)[0];
-       g=(*itd)[1];
-       b=(*itd)[2];
+       r = (*itd)[0];
+       g = (*itd)[1];
+       b = (*itd)[2];
 
       double theta = atan2(b, g);
       double newTheta=0;
@@ -50,37 +49,36 @@ cv::Mat Inverse::fullRotation(cv::Mat img) {
       (*itd)[0]=(_local[0]);        
       (*itd)[1]=(_local[1]);
       (*itd)[2]=(_local[2]);
- }
-    return img1;
+   }
+   return img1;
 }
 
 
-cv::Mat Inverse::linearTransform(cv::Mat img) {
-       cv::Mat img1 = img.clone();
-      Eigen::Matrix3d linear_matrix;
+cv::Mat Inverse::setlinearImage(cv::Mat img1)
+{   
 
-      linear_matrix << 1.0000, 0.1140, 0.7436,
-      1.0000, 0.1140, -0.4111,
-      1.0000, -0.8860,0.1663;
+   Eigen::Matrix3d linear_matrix;
 
-      double gamma = 2.2f;
+   linear_matrix << 1.0000, 0.1140, 0.7436,
+   1.0000, 0.1140, -0.4111,
+   1.0000, -0.8860,0.1663;
 
-      cv::MatIterator_<cv::Vec3d> itd, end;
-      for( itd=img1.begin<cv::Vec3d>(); itd!= img1.end<cv::Vec3d>();++itd) 
-      {
-         Eigen::Vector3d _local {(*itd)[0], (*itd)[1], (*itd)[2]};
+   double gamma = 2.2f;
 
-         _local = linear_matrix * _local;
+   cv::MatIterator_<cv::Vec3d> itd, end;
+   for( itd=img1.begin<cv::Vec3d>(); itd!= img1.end<cv::Vec3d>();++itd) 
+   {
+      Eigen::Vector3d _local {(*itd)[0], (*itd)[1], (*itd)[2]};
 
-         (*itd)[0]=(_local(0))*255;
-         (*itd)[1]=(_local(1))*255;
-         (*itd)[2]=(_local(2))*255;
+      _local = linear_matrix * _local;
 
-         (*itd)[0] = pow((static_cast <double>((*itd)[0]) / 255.0 ),gamma)*255;
-         (*itd)[1] = pow((static_cast <double>((*itd)[1]) / 255.0 ),gamma)*255;
-         (*itd)[2] = pow((static_cast <double>((*itd)[2]) / 255.0 ),gamma)*255; 
-       }
-    img1.convertTo(img1, CV_8UC3);
+      (*itd)[0]=(_local(0))*255;
+      (*itd)[1]=(_local(1))*255;
+      (*itd)[2]=(_local(2))*255;
+
+      (*itd)[0] = pow((static_cast <double>((*itd)[0]) / 255.0 ),gamma)*255;
+      (*itd)[1] = pow((static_cast <double>((*itd)[1]) / 255.0 ),gamma)*255;
+      (*itd)[2] = pow((static_cast <double>((*itd)[2]) / 255.0 ),gamma)*255; 
+      }
    return img1;
 }  
-

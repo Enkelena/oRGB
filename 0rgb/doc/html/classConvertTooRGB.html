@@ -63,6 +63,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classConvertTooRGB-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -75,50 +76,64 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="colorspaceadjustment_8hpp_source.html">colorspaceadjustment.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a5a5f42e2e7ba896375c29424398ba20d"><td class="memItemLeft" align="right" valign="top"><a id="a5a5f42e2e7ba896375c29424398ba20d"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>channel</b> { <b>L</b>, 
+<b>Cyb</b>, 
+<b>Crg</b>
+ }</td></tr>
+<tr class="separator:a5a5f42e2e7ba896375c29424398ba20d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac2289bab2a6a961253210c5ddf950250"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConvertTooRGB.html#ac2289bab2a6a961253210c5ddf950250">normalize</a> (cv::Mat img)</td></tr>
-<tr class="memdesc:ac2289bab2a6a961253210c5ddf950250"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that normalizes the values.  <a href="classConvertTooRGB.html#ac2289bab2a6a961253210c5ddf950250">More...</a><br /></td></tr>
-<tr class="separator:ac2289bab2a6a961253210c5ddf950250"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb3c4e226cd6c4f9d97e80722e012b39"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConvertTooRGB.html#abb3c4e226cd6c4f9d97e80722e012b39">linearTransform</a> (cv::Mat img)</td></tr>
-<tr class="memdesc:abb3c4e226cd6c4f9d97e80722e012b39"><td class="mdescLeft">&#160;</td><td class="mdescRight">function that returns a vector after it has been multiplied with a specific matrix given because of the formula  <a href="classConvertTooRGB.html#abb3c4e226cd6c4f9d97e80722e012b39">More...</a><br /></td></tr>
-<tr class="separator:abb3c4e226cd6c4f9d97e80722e012b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea987958f91d3b8f55fbe1600e529c8c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConvertTooRGB.html#aea987958f91d3b8f55fbe1600e529c8c">setNormalizeImage</a> (cv::Mat img1)</td></tr>
+<tr class="memdesc:aea987958f91d3b8f55fbe1600e529c8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that normalizes the values.  <a href="classConvertTooRGB.html#aea987958f91d3b8f55fbe1600e529c8c">More...</a><br /></td></tr>
+<tr class="separator:aea987958f91d3b8f55fbe1600e529c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a547fc58e1dfc5f07d795a5017625acb0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConvertTooRGB.html#a547fc58e1dfc5f07d795a5017625acb0">setLinearImage</a> ()</td></tr>
+<tr class="memdesc:a547fc58e1dfc5f07d795a5017625acb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">function that returns a vector after it has been multiplied with a specific matrix given because of the formula  <a href="classConvertTooRGB.html#a547fc58e1dfc5f07d795a5017625acb0">More...</a><br /></td></tr>
+<tr class="separator:a547fc58e1dfc5f07d795a5017625acb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accad25adf5da9822dab00389be56d67f"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConvertTooRGB.html#accad25adf5da9822dab00389be56d67f">rotatePoint</a> (double angle)</td></tr>
 <tr class="memdesc:accad25adf5da9822dab00389be56d67f"><td class="mdescLeft">&#160;</td><td class="mdescRight">contains a matrix of rotation, that we will use to rotate a vector in the next function  <a href="classConvertTooRGB.html#accad25adf5da9822dab00389be56d67f">More...</a><br /></td></tr>
 <tr class="separator:accad25adf5da9822dab00389be56d67f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5277be417027292de20e6d751a9abb21"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConvertTooRGB.html#a5277be417027292de20e6d751a9abb21">fullRotation</a> (cv::Mat img)</td></tr>
-<tr class="memdesc:a5277be417027292de20e6d751a9abb21"><td class="mdescLeft">&#160;</td><td class="mdescRight">based on the angle taken from the vector of the loaded image, it rotates that vector using the previous rotatePoint function  <a href="classConvertTooRGB.html#a5277be417027292de20e6d751a9abb21">More...</a><br /></td></tr>
-<tr class="separator:a5277be417027292de20e6d751a9abb21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab554ed09c3a6a4a360a8e324adc56d7a"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConvertTooRGB.html#ab554ed09c3a6a4a360a8e324adc56d7a">filter</a> (double cb, double crg, cv::Mat img)</td></tr>
-<tr class="memdesc:ab554ed09c3a6a4a360a8e324adc56d7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">It changes the values of ths second and third vector of the image.  <a href="classConvertTooRGB.html#ab554ed09c3a6a4a360a8e324adc56d7a">More...</a><br /></td></tr>
-<tr class="separator:ab554ed09c3a6a4a360a8e324adc56d7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82867fb381140eadacea55a94eae076d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConvertTooRGB.html#a82867fb381140eadacea55a94eae076d">fullRotation</a> ()</td></tr>
+<tr class="memdesc:a82867fb381140eadacea55a94eae076d"><td class="mdescLeft">&#160;</td><td class="mdescRight">based on the angle taken from the vector of the loaded image, it rotates that vector using the previous rotatePoint function  <a href="classConvertTooRGB.html#a82867fb381140eadacea55a94eae076d">More...</a><br /></td></tr>
+<tr class="separator:a82867fb381140eadacea55a94eae076d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a997beec209f4188e222a11d1723d67"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConvertTooRGB.html#a2a997beec209f4188e222a11d1723d67">setFilter</a> (cv::Mat img, double cyb, double crg)</td></tr>
+<tr class="memdesc:a2a997beec209f4188e222a11d1723d67"><td class="mdescLeft">&#160;</td><td class="mdescRight">It changes the values of ths second and third vector of the image.  <a href="classConvertTooRGB.html#a2a997beec209f4188e222a11d1723d67">More...</a><br /></td></tr>
+<tr class="separator:a2a997beec209f4188e222a11d1723d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4f3c8f1566ae2b5981388259038fc4d"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConvertTooRGB.html#ac4f3c8f1566ae2b5981388259038fc4d">getnormalizedImage</a> ()</td></tr>
+<tr class="memdesc:ac4f3c8f1566ae2b5981388259038fc4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the matrix value from the private variable 'normalizedImage', which has been previously set by SetNormalizedImage function.  <a href="classConvertTooRGB.html#ac4f3c8f1566ae2b5981388259038fc4d">More...</a><br /></td></tr>
+<tr class="separator:ac4f3c8f1566ae2b5981388259038fc4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9c4a729cc9f71f9444fa975abc1db96"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConvertTooRGB.html#ae9c4a729cc9f71f9444fa975abc1db96">getLinearImage</a> ()</td></tr>
+<tr class="memdesc:ae9c4a729cc9f71f9444fa975abc1db96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the matrix value from the private variable 'linearImage', which has been previously set by setLinearImage function.  <a href="classConvertTooRGB.html#ae9c4a729cc9f71f9444fa975abc1db96">More...</a><br /></td></tr>
+<tr class="separator:ae9c4a729cc9f71f9444fa975abc1db96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae17183599544baa7a4964b416b52da17"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConvertTooRGB.html#ae17183599544baa7a4964b416b52da17">getRotatedImage</a> ()</td></tr>
+<tr class="memdesc:ae17183599544baa7a4964b416b52da17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the matrix value from the private variable 'rotatedImage', which has been previously set by <a class="el" href="classConvertTooRGB.html#a82867fb381140eadacea55a94eae076d" title="based on the angle taken from the vector of the loaded image, it rotates that vector using the previo...">fullRotation()</a> function.  <a href="classConvertTooRGB.html#ae17183599544baa7a4964b416b52da17">More...</a><br /></td></tr>
+<tr class="separator:ae17183599544baa7a4964b416b52da17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c93e989d8683b6c89eb5b4caef99659"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConvertTooRGB.html#a5c93e989d8683b6c89eb5b4caef99659">channelExtraction</a> (cv::Mat img, channel c)</td></tr>
+<tr class="memdesc:a5c93e989d8683b6c89eb5b4caef99659"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to separate channels of the image.  <a href="classConvertTooRGB.html#a5c93e989d8683b6c89eb5b4caef99659">More...</a><br /></td></tr>
+<tr class="separator:a5c93e989d8683b6c89eb5b4caef99659"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class that contains the functions to fully create the color space "oRGB". </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab554ed09c3a6a4a360a8e324adc56d7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab554ed09c3a6a4a360a8e324adc56d7a">&#9670;&nbsp;</a></span>filter()</h2>
+<a id="a5c93e989d8683b6c89eb5b4caef99659"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c93e989d8683b6c89eb5b4caef99659">&#9670;&nbsp;</a></span>channelExtraction()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">cv::Mat ConvertTooRGB::filter </td>
+          <td class="memname">cv::Mat ConvertTooRGB::channelExtraction </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>cb</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>crg</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">cv::Mat&#160;</td>
-          <td class="paramname"><em>img</em>&#160;</td>
+          <td class="paramname"><em>img</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">channel&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -128,12 +143,11 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>It changes the values of ths second and third vector of the image. </p>
+<p>Function to separate channels of the image. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cb</td><td></td></tr>
-    <tr><td class="paramname">crg</td><td></td></tr>
     <tr><td class="paramname">img</td><td></td></tr>
+    <tr><td class="paramname">c</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -141,17 +155,16 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a5277be417027292de20e6d751a9abb21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5277be417027292de20e6d751a9abb21">&#9670;&nbsp;</a></span>fullRotation()</h2>
+<a id="a82867fb381140eadacea55a94eae076d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82867fb381140eadacea55a94eae076d">&#9670;&nbsp;</a></span>fullRotation()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">cv::Mat ConvertTooRGB::fullRotation </td>
+          <td class="memname">bool ConvertTooRGB::fullRotation </td>
           <td>(</td>
-          <td class="paramtype">cv::Mat&#160;</td>
-          <td class="paramname"><em>img</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -168,50 +181,63 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="abb3c4e226cd6c4f9d97e80722e012b39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb3c4e226cd6c4f9d97e80722e012b39">&#9670;&nbsp;</a></span>linearTransform()</h2>
+<a id="ae9c4a729cc9f71f9444fa975abc1db96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9c4a729cc9f71f9444fa975abc1db96">&#9670;&nbsp;</a></span>getLinearImage()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">cv::Mat ConvertTooRGB::linearTransform </td>
+          <td class="memname">cv::Mat ConvertTooRGB::getLinearImage </td>
           <td>(</td>
-          <td class="paramtype">cv::Mat&#160;</td>
-          <td class="paramname"><em>img</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>function that returns a vector after it has been multiplied with a specific matrix given because of the formula </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">img</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Returns the matrix value from the private variable 'linearImage', which has been previously set by setLinearImage function. </p>
 <dl class="section return"><dt>Returns</dt><dd>cv::Mat </dd></dl>
 
 </div>
 </div>
-<a id="ac2289bab2a6a961253210c5ddf950250"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2289bab2a6a961253210c5ddf950250">&#9670;&nbsp;</a></span>normalize()</h2>
+<a id="ac4f3c8f1566ae2b5981388259038fc4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4f3c8f1566ae2b5981388259038fc4d">&#9670;&nbsp;</a></span>getnormalizedImage()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">cv::Mat ConvertTooRGB::normalize </td>
+          <td class="memname">cv::Mat ConvertTooRGB::getnormalizedImage </td>
           <td>(</td>
-          <td class="paramtype">cv::Mat&#160;</td>
-          <td class="paramname"><em>img</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Function that normalizes the values. </p>
+<p>Returns the matrix value from the private variable 'normalizedImage', which has been previously set by SetNormalizedImage function. </p>
+<dl class="section return"><dt>Returns</dt><dd>cv::Mat </dd></dl>
+
+</div>
+</div>
+<a id="ae17183599544baa7a4964b416b52da17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae17183599544baa7a4964b416b52da17">&#9670;&nbsp;</a></span>getRotatedImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Mat ConvertTooRGB::getRotatedImage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the matrix value from the private variable 'rotatedImage', which has been previously set by <a class="el" href="classConvertTooRGB.html#a82867fb381140eadacea55a94eae076d" title="based on the angle taken from the vector of the loaded image, it rotates that vector using the previo...">fullRotation()</a> function. </p>
+<dl class="section return"><dt>Returns</dt><dd>cv::Mat </dd></dl>
 
 </div>
 </div>
@@ -239,6 +265,107 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Eigen::Matrix3d </dd></dl>
+
+</div>
+</div>
+<a id="a2a997beec209f4188e222a11d1723d67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a997beec209f4188e222a11d1723d67">&#9670;&nbsp;</a></span>setFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Mat ConvertTooRGB::setFilter </td>
+          <td>(</td>
+          <td class="paramtype">cv::Mat&#160;</td>
+          <td class="paramname"><em>img</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>cyb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>crg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>It changes the values of ths second and third vector of the image. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cb</td><td></td></tr>
+    <tr><td class="paramname">crg</td><td></td></tr>
+    <tr><td class="paramname">img</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>cv::Mat</dd></dl>
+<p>Set the Filter values- it changes the value of the vectors Cyb and Crg</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">img</td><td></td></tr>
+    <tr><td class="paramname">cyb</td><td></td></tr>
+    <tr><td class="paramname">crg</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>cv::Mat </dd></dl>
+
+</div>
+</div>
+<a id="a547fc58e1dfc5f07d795a5017625acb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a547fc58e1dfc5f07d795a5017625acb0">&#9670;&nbsp;</a></span>setLinearImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ConvertTooRGB::setLinearImage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function that returns a vector after it has been multiplied with a specific matrix given because of the formula </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">img</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>cv::Mat </dd></dl>
+
+</div>
+</div>
+<a id="aea987958f91d3b8f55fbe1600e529c8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea987958f91d3b8f55fbe1600e529c8c">&#9670;&nbsp;</a></span>setNormalizeImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ConvertTooRGB::setNormalizeImage </td>
+          <td>(</td>
+          <td class="paramtype">cv::Mat&#160;</td>
+          <td class="paramname"><em>img1</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that normalizes the values. </p>
 
 </div>
 </div>

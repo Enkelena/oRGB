@@ -89,26 +89,25 @@ $(function() {
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <a class="code" href="classInverse.html">Inverse</a>(<span class="keywordtype">void</span>) = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classInverse.html#a6e9249d396012c5db2f08d6d754a6691">   33</a></span>&#160;    cv::Mat <a class="code" href="classInverse.html#a6e9249d396012c5db2f08d6d754a6691">linearTransform</a>(cv::Mat img); </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classInverse.html#add023ec728fc3da800ecf6febf9fc1b6">   42</a></span>&#160;    Eigen::Matrix3d <a class="code" href="classInverse.html#add023ec728fc3da800ecf6febf9fc1b6">rotatePoint</a>(<span class="keywordtype">double</span> angle);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classInverse.html#a98fb9203a592921ed60e6292834a42db">   51</a></span>&#160;    cv::Mat <a class="code" href="classInverse.html#a98fb9203a592921ed60e6292834a42db">fullRotation</a>(cv::Mat img);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classInverse.html#add023ec728fc3da800ecf6febf9fc1b6">   30</a></span>&#160;    Eigen::Matrix3d <a class="code" href="classInverse.html#add023ec728fc3da800ecf6febf9fc1b6">rotatePoint</a>(<span class="keywordtype">double</span> angle);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">// /**</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">//  * @brief based on the angle taken from the vector of the loaded image, it rotates that vector using the previous rotatePoint function</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">//  * </span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//  * @param img </span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">//  * @return cv::Mat </span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">//  */</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    cv::Mat fullRotation(cv::Mat img1);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classInverse.html#a97af8ed98a679cbffb23f6401e6b3f9f">   47</a></span>&#160;    cv::Mat <a class="code" href="classInverse.html#a97af8ed98a679cbffb23f6401e6b3f9f">setlinearImage</a>(cv::Mat img1);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassInverse_html_add023ec728fc3da800ecf6febf9fc1b6"><div class="ttname"><a href="classInverse.html#add023ec728fc3da800ecf6febf9fc1b6">Inverse::rotatePoint</a></div><div class="ttdeci">Eigen::Matrix3d rotatePoint(double angle)</div><div class="ttdoc">contains a matrix of rotation, that we will use to rotate a vector in the next function.</div></div>
-<div class="ttc" id="aclassInverse_html_a98fb9203a592921ed60e6292834a42db"><div class="ttname"><a href="classInverse.html#a98fb9203a592921ed60e6292834a42db">Inverse::fullRotation</a></div><div class="ttdeci">cv::Mat fullRotation(cv::Mat img)</div><div class="ttdoc">based on the angle taken from the vector of the loaded image, it rotates that vector using the previo...</div></div>
+<div class="ttc" id="aclassInverse_html_a97af8ed98a679cbffb23f6401e6b3f9f"><div class="ttname"><a href="classInverse.html#a97af8ed98a679cbffb23f6401e6b3f9f">Inverse::setlinearImage</a></div><div class="ttdeci">cv::Mat setlinearImage(cv::Mat img1)</div><div class="ttdoc">function that returns a vector after it has been multiplied with a specific matrix given because of t...</div></div>
 <div class="ttc" id="aclassInverse_html"><div class="ttname"><a href="classInverse.html">Inverse</a></div><div class="ttdoc">Class to bring back the RGB color space from the oRGB.</div><div class="ttdef"><b>Definition:</b> inversecolorpsaceadjustement.hpp:19</div></div>
-<div class="ttc" id="aclassInverse_html_a6e9249d396012c5db2f08d6d754a6691"><div class="ttname"><a href="classInverse.html#a6e9249d396012c5db2f08d6d754a6691">Inverse::linearTransform</a></div><div class="ttdeci">cv::Mat linearTransform(cv::Mat img)</div><div class="ttdoc">function that returns a vector after it has been multiplied with a specific matrix given because of t...</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

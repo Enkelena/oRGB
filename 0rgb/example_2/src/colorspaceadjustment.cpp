@@ -1,10 +1,13 @@
 #include "colorspaceadjustment.hpp"
+#include "inversecolorpsaceadjustement.hpp"
 
-cv::Mat ConvertTooRGB::normalize(cv::Mat img)
-{
- cv::Mat img1 = img.clone();
-    img1.convertTo(img1, CV_64FC3);
-    double r{0},b{0},g{0};
+Inverse objec;
+
+bool ConvertTooRGB::setNormalizeImage(cv::Mat img1)
+ {
+   // img1 = getMainImage();
+   img1.convertTo(img1, CV_64FC3);
+   double r{0},b{0},g{0};
 
     cv::MatIterator_<cv::Vec3d> itd = img1.begin<cv::Vec3d>(), itd_end = img1.end<cv::Vec3d>();
     for(int i = 0; itd != itd_end; ++itd,++i)
@@ -17,26 +20,34 @@ cv::Mat ConvertTooRGB::normalize(cv::Mat img)
       (*itd)[1] = g;
       (*itd)[2] = b;
     }   
-    return img1;
-} 
+   this->normalizedImage = img1.clone();
+      std::cout<<"message 1 taken"<<std::endl;
 
-cv::Mat ConvertTooRGB::linearTransform(cv::Mat img) 
+   return true;
+}
+
+cv::Mat ConvertTooRGB::getnormalizedImage()
 {
-   Eigen::Matrix3d linear_matrix;
+  return this->normalizedImage;
+}
 
+
+bool ConvertTooRGB::setLinearImage() { 
+   Eigen::Matrix3d linear_matrix;
    linear_matrix << 0.2990, 0.5870, 0.1140, 
                        0.5000, 0.5000, -1.0000,
                        0.8660, -0.8660, 0.0000;
 
    double r{0},b{0},g{0};
-   cv::Mat img1 = img.clone();
+
+   cv::Mat img1=getnormalizedImage();
 
    cv::MatIterator_<cv::Vec3d> itd, end;
    for( itd=img1.begin<cv::Vec3d>(); itd!= img1.end<cv::Vec3d>();++itd) {
 
-      r= (*itd)[0];
-      g= (*itd)[1];
-      b= (*itd)[2];
+      r = (*itd)[0];
+      g = (*itd)[1];
+      b = (*itd)[2];
 
       Eigen::Vector3d _local {r,g,b};
 
@@ -46,7 +57,17 @@ cv::Mat ConvertTooRGB::linearTransform(cv::Mat img)
       (*itd)[1]=(_local[1]);
       (*itd)[2]=(_local[2]);
    }
-   return img1;
+ 
+   this->linearImage = img1.clone();
+      std::cout<<"message 2 taken"<<std::endl;
+
+   return true;
+}
+
+
+cv::Mat ConvertTooRGB::getLinearImage()
+{
+  return this->linearImage;
 }
 
 
@@ -66,9 +87,9 @@ Eigen::Matrix3d ConvertTooRGB::rotatePoint(double angle)
 }
 
 
-cv::Mat ConvertTooRGB::fullRotation(cv::Mat img) 
+bool ConvertTooRGB::fullRotation() 
 {
-   cv::Mat img1 = img.clone();
+   cv::Mat img1 = getLinearImage();
    double thetaAngle=0;
    double r{0},b{0},g{0};
 
@@ -88,7 +109,7 @@ cv::Mat ConvertTooRGB::fullRotation(cv::Mat img)
       if((theta>= (M_PI /3)) && (theta <=(5*M_PI/3))) {
          newTheta = (M_PI/2 + 3/4*(theta-M_PI/3));   
       } 
-
+   
       if((theta> 5*M_PI / 3) && (theta <(2*M_PI)) ) {
          newTheta = (3/2)*theta;
       }
@@ -102,49 +123,29 @@ cv::Mat ConvertTooRGB::fullRotation(cv::Mat img)
       (*itd)[0]=(_local[0]);        
       (*itd)[1]=(_local[1]);
       (*itd)[2]=(_local[2]);
-   }
-         //  img.convertTo(img, CV_8UC3);
-   return img1;
+   }      
+
+   this->rotatedImage=img1.clone();
+   return true;
 }
 
 
-// cv::Mat ConvertTooRGB::filter(double cyb, double crg, cv::Mat img) {
+cv::Mat ConvertTooRGB::getRotatedImage()
+{
+  return this->rotatedImage;
+}
 
-//    cv::Mat img1 = img.clone();
-//    cv::MatIterator_<cv::Vec3d> itd, end;
-//    for( itd=img1.begin<cv::Vec3d>(); itd!= img1.end<cv::Vec3d>();++itd) 
-//    { 
-//       if(((*itd)[2] -=cyb)<-1)
-//       {
-//          (*itd)[2] =-1.0;
-//       }
-         
-//       if(((*itd)[2] -=cyb)>1) 
-//       {
-//          (*itd)[2] =1.0;
-//       }
 
-//       if(((*itd)[1] -=crg)<-1)
-//       {
-//          (*itd)[1] =-1.0;
-//       }
+cv::Mat ConvertTooRGB::setFilter(cv::Mat img, double cyb, double crg) 
+{
+   setNormalizeImage(img);
+   setLinearImage();
+   fullRotation();
 
-//       if(((*itd)[1] -=crg)>1) 
-//       {
-//          (*itd)[1] =1.0;
-//       }
-//    }
-//    return img1;
-// }
-
-cv::Mat ConvertTooRGB::filter(double cyb, double crg, cv::Mat img) {
-
-   cv::Mat img1 = img.clone();
+   cv::Mat img1=getRotatedImage();
    cv::MatIterator_<cv::Vec3d> itd, end;
    for( itd=img1.begin<cv::Vec3d>(); itd!= img1.end<cv::Vec3d>();++itd) 
    { 
-
-
       if(((*itd)[2] -=cyb)<-1)
       {
          (*itd)[2] =-1.0;
@@ -165,6 +166,12 @@ cv::Mat ConvertTooRGB::filter(double cyb, double crg, cv::Mat img) {
          (*itd)[1] =1.0;
       }
    }
+
+
+  img1 = objec.fullRotation(img1);
+  img1 = objec.setlinearImage(img1);
+  img1.convertTo(img1, CV_8UC3);
+
    return img1;
 }
 
@@ -175,24 +182,22 @@ cv::Mat ConvertTooRGB::channelExtraction( cv::Mat img, channel c) {
    cv::MatIterator_<cv::Vec3d> itd, end;
    for( itd=img1.begin<cv::Vec3d>(); itd!= img1.end<cv::Vec3d>();++itd) 
    { 
-     // ConvertTooRGB::channel c; 
-
       switch (c)
       {
       case  L:
-       (*itd)[0] =  (*itd)[0];
+       //(*itd)[0] =  0;
        (*itd)[1]=0;
        (*itd)[2]=0;
          break;
 
-        case  Cyb:
-       (*itd)[0] =  0;
+      case  Cyb:
+       (*itd)[0] = (*itd)[0];
        (*itd)[1]=(*itd)[1];
        (*itd)[2]=0;
          break;
 
-       case  Crg:
-       (*itd)[0] = 0;
+        case  Crg:
+       (*itd)[0] =  (*itd)[0];
        (*itd)[1]=0;
        (*itd)[2]=(*itd)[2];
          break;
@@ -201,5 +206,6 @@ cv::Mat ConvertTooRGB::channelExtraction( cv::Mat img, channel c) {
       std::cout << "Invalid Selection\n";
          break;
       }
-}    
-return img1; }
+   }    
+return img1; 
+}

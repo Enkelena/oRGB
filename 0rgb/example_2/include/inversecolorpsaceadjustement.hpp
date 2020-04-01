@@ -21,16 +21,6 @@ class Inverse {
  public:
   Inverse(void) = default;
 
-
-/**
- * @brief function that returns a vector after it has been multiplied with a specific matrix given because of the formula. Also it normalizes the values
- * 
- * @param img 
- * @return cv::Mat 
- */
-    cv::Mat linearTransform(cv::Mat img); 
-
-
 /**
  * @brief contains a matrix of rotation, that we will use to rotate a vector in the next function.
  * 
@@ -40,15 +30,21 @@ class Inverse {
     Eigen::Matrix3d rotatePoint(double angle);
 
 
+// /**
+//  * @brief based on the angle taken from the vector of the loaded image, it rotates that vector using the previous rotatePoint function
+//  * 
+//  * @param img 
+//  * @return cv::Mat 
+//  */
+    cv::Mat fullRotation(cv::Mat img1);
+
 /**
- * @brief based on the angle taken from the vector of the loaded image, it rotates that vector using the previous rotatePoint function
+ * @brief function that returns a vector after it has been multiplied with a specific matrix given because of the formula. Also it normalizes the values
  * 
  * @param img 
  * @return cv::Mat 
  */
-    cv::Mat fullRotation(cv::Mat img);
-
+    cv::Mat setlinearImage(cv::Mat img1);
 };
-
 
 #endif

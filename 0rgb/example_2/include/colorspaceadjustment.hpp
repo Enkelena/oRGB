@@ -27,7 +27,7 @@ class ConvertTooRGB {
  * @brief Function that normalizes the values
  *  
  */
-     cv::Mat normalize(cv::Mat img);
+bool setNormalizeImage(cv::Mat img1);
 
 /**
  * @brief function that returns a vector after it has been multiplied with a specific matrix given because of the formula
@@ -35,7 +35,7 @@ class ConvertTooRGB {
  * @param img 
  * @return cv::Mat 
  */
-    cv::Mat linearTransform(cv::Mat img);
+bool setLinearImage();
 
 /**
  * @brief contains a matrix of rotation, that we will use to rotate a vector in the next function
@@ -52,7 +52,7 @@ class ConvertTooRGB {
  * @param img 
  * @return cv::Mat 
  */
-    cv::Mat fullRotation(cv::Mat img);
+bool fullRotation();
 
 /**
  * @brief It changes the values of ths second and third vector of the image
@@ -64,11 +64,58 @@ class ConvertTooRGB {
  */
 
 
-cv::Mat filter(double cb, double crg, cv::Mat img);
+//cv::Mat filter(double cb, double crg, cv::Mat img);
+
+
+
+
+/**
+ * @brief Set the Filter values- it changes the value of the vectors Cyb and Crg
+ * 
+ * @param img 
+ * @param cyb 
+ * @param crg 
+ * @return cv::Mat 
+ */
+cv::Mat setFilter(cv::Mat img,double cyb, double crg);
+
+
+/**
+ * @brief Returns the matrix value from the private variable 'normalizedImage', which has been previously set by SetNormalizedImage function. 
+ * 
+ * @return cv::Mat 
+ */
+cv::Mat getnormalizedImage();
+
+/**
+ * @brief Returns the matrix value from the private variable 'linearImage', which has been previously set by setLinearImage function. 
+ * 
+ * @return cv::Mat 
+ */
+cv::Mat getLinearImage();
+
+/**
+ * @brief Returns the matrix value from the private variable 'rotatedImage', which has been previously set by fullRotation() function.
+ * 
+ * @return cv::Mat 
+ */
+cv::Mat getRotatedImage();
+
 enum  channel {L, Cyb, Crg};
 
+/**
+ * @brief Function to separate channels of the image
+ * 
+ * @param img 
+ * @param c 
+ * @return cv::Mat 
+ */
 cv::Mat channelExtraction( cv::Mat img, channel c); 
 
+private:
+cv::Mat normalizedImage;
+cv::Mat linearImage;
+cv::Mat rotatedImage;
 };
 
 #endif

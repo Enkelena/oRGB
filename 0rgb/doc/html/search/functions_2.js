@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['normalize_12',['normalize',['../classConvertTooRGB.html#ac2289bab2a6a961253210c5ddf950250',1,'ConvertTooRGB']]]
+  ['getlinearimage_15',['getLinearImage',['../classConvertTooRGB.html#ae9c4a729cc9f71f9444fa975abc1db96',1,'ConvertTooRGB']]],
+  ['getnormalizedimage_16',['getnormalizedImage',['../classConvertTooRGB.html#ac4f3c8f1566ae2b5981388259038fc4d',1,'ConvertTooRGB']]],
+  ['getrotatedimage_17',['getRotatedImage',['../classConvertTooRGB.html#ae17183599544baa7a4964b416b52da17',1,'ConvertTooRGB']]]
 ];

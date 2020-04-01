@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lineartransform_11',['linearTransform',['../classConvertTooRGB.html#abb3c4e226cd6c4f9d97e80722e012b39',1,'ConvertTooRGB::linearTransform()'],['../classInverse.html#a6e9249d396012c5db2f08d6d754a6691',1,'Inverse::linearTransform()']]]
+  ['fullrotation_14',['fullRotation',['../classConvertTooRGB.html#a82867fb381140eadacea55a94eae076d',1,'ConvertTooRGB']]]
 ];

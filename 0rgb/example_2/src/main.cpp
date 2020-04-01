@@ -7,40 +7,31 @@ using namespace cv;
 int main(int argc, char *argv[]) {
 
    Inverse inv;
-
    ConvertTooRGB firstConvert;
   
-   std::string path = "/home/solaborate/Downloads/pot.jpg";
+   std::string path = "/home/solaborate/Downloads/lena.png";
    cv::Mat img = cv::imread(path, cv::IMREAD_COLOR);
    cv::cvtColor(img, img, cv::COLOR_BGR2RGB);
 
-//Check if image is empty or is not in three channel colorspace
   if (!img.data)
   {
       std::cout << "Image not loaded. Check path : " << path << std::endl;
       // return false;
   }
  
- //------------------------------------------------------
-  //functions here...
-  img=firstConvert.normalize(img);
-  img =firstConvert.linearTransform(img);
-  img=firstConvert.fullRotation(img);  
-  img=firstConvert.channelExtraction(img, firstConvert.channel::L);
-  //img = firstConvert.filter(0.0, 0.3, img);
-  img=inv.fullRotation(img);
-  img = inv.linearTransform(img);
-  //img = inv.normalizeBack(img);
-  
-   cv::cvtColor(img, img, cv::COLOR_RGB2BGR);
-  
-//--------------------------------------------------------
+//---------filter values here-----------------
+  img = firstConvert.setFilter(img, 0.0, 0.3);
+//--------------------------------------------
+
+  cv::cvtColor(img, img, cv::COLOR_RGB2BGR);
+
   cv::namedWindow( "Result", cv::WINDOW_FULLSCREEN);
+
   cv::imshow("Result", img);  
  
   std::cout << "Press any key to close ..." << std::endl;
   cv::waitKey(0);
   cv::destroyAllWindows();
- 
+  
   return 0;
 }

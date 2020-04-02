@@ -5,7 +5,6 @@ Inverse objec;
 
 bool ConvertTooRGB::setNormalizeImage(cv::Mat img1)
  {
-   // img1 = getMainImage();
    img1.convertTo(img1, CV_64FC3);
    double r{0},b{0},g{0};
 
@@ -21,8 +20,6 @@ bool ConvertTooRGB::setNormalizeImage(cv::Mat img1)
       (*itd)[2] = b;
     }   
    this->normalizedImage = img1.clone();
-      std::cout<<"message 1 taken"<<std::endl;
-
    return true;
 }
 
@@ -59,8 +56,6 @@ bool ConvertTooRGB::setLinearImage() {
    }
  
    this->linearImage = img1.clone();
-      std::cout<<"message 2 taken"<<std::endl;
-
    return true;
 }
 
@@ -120,11 +115,10 @@ bool ConvertTooRGB::fullRotation()
       Eigen::Vector3d _local {r,g,b};
       _local = (rotatePoint(thetaAngle) * _local);
 
-      (*itd)[0]=(_local[0]);        
+      (*itd)[0]=(_local[0]);      
       (*itd)[1]=(_local[1]);
       (*itd)[2]=(_local[2]);
-   }      
-
+   }    
    this->rotatedImage=img1.clone();
    return true;
 }
@@ -134,7 +128,6 @@ cv::Mat ConvertTooRGB::getRotatedImage()
 {
   return this->rotatedImage;
 }
-
 
 cv::Mat ConvertTooRGB::setFilter(cv::Mat img, double cyb, double crg) 
 {
@@ -165,6 +158,7 @@ cv::Mat ConvertTooRGB::setFilter(cv::Mat img, double cyb, double crg)
       {
          (*itd)[1] =1.0;
       }
+      
    }
 
 
@@ -176,9 +170,13 @@ cv::Mat ConvertTooRGB::setFilter(cv::Mat img, double cyb, double crg)
 }
 
 
-cv::Mat ConvertTooRGB::channelExtraction( cv::Mat img, channel c) { 
+cv::Mat ConvertTooRGB::channelExtraction( cv::Mat img1, channel c) { 
 
-   cv::Mat img1 = img.clone();
+   // cv::Mat img1 = img.clone();
+   setNormalizeImage(img1);
+   setLinearImage();
+   fullRotation();
+   img1 = getRotatedImage();
    cv::MatIterator_<cv::Vec3d> itd, end;
    for( itd=img1.begin<cv::Vec3d>(); itd!= img1.end<cv::Vec3d>();++itd) 
    { 
@@ -207,5 +205,9 @@ cv::Mat ConvertTooRGB::channelExtraction( cv::Mat img, channel c) {
          break;
       }
    }    
+  img1 = objec.fullRotation(img1);
+  img1 = objec.setlinearImage(img1);
+  img1.convertTo(img1, CV_8UC3);
+
 return img1; 
 }

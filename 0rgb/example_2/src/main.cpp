@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
    Inverse inv;
    ConvertTooRGB firstConvert;
   
-   std::string path = "/home/solaborate/Downloads/lena.png";
+   std::string path = "/home/solaborate/Downloads/pot.jpg";
    cv::Mat img = cv::imread(path, cv::IMREAD_COLOR);
    cv::cvtColor(img, img, cv::COLOR_BGR2RGB);
 
@@ -19,14 +19,14 @@ int main(int argc, char *argv[]) {
       // return false;
   }
  
-//---------filter values here-----------------
+//---------filters here-----------------
+
   img = firstConvert.setFilter(img, 0.0, 0.3);
-//--------------------------------------------
+  //img=firstConvert.channelExtraction(img, firstConvert.channel::L);
+  //--------------------------------------------
 
   cv::cvtColor(img, img, cv::COLOR_RGB2BGR);
-
   cv::namedWindow( "Result", cv::WINDOW_FULLSCREEN);
-
   cv::imshow("Result", img);  
  
   std::cout << "Press any key to close ..." << std::endl;

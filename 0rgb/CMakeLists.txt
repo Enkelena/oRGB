@@ -45,7 +45,7 @@ set(CMAKE_CXX_FLAGS
 
 find_package(Eigen3 REQUIRED)
 find_package(OpenCV REQUIRED)
-#find_package(GTest REQUIRED)
-#enable_testing()
+find_package(GTest REQUIRED)
+enable_testing()
 #-Wcast-qual \
 add_subdirectory(example_2)

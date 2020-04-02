@@ -110,7 +110,7 @@ enum  channel {L, Cyb, Crg};
  * @param c 
  * @return cv::Mat 
  */
-cv::Mat channelExtraction( cv::Mat img, channel c); 
+cv::Mat channelExtraction( cv::Mat img1, channel c); 
 
 private:
 cv::Mat normalizedImage;

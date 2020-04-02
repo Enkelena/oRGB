@@ -6,7 +6,7 @@ project(colorspace)
 include_directories(
   ${OpenCV_INCLUDE_DIRS}
   ${EIGEN3_INCLUDE_DIR}
- # ${GTEST_INCLUDE_DIRS}
+  ${GTEST_INCLUDE_DIRS}
   include/
 )
 
@@ -36,6 +36,6 @@ target_link_libraries( ${PROJECT_NAME}_exec
 # Testing
 ###############################################################################
 
-#enable_testing()
+enable_testing()
 
 add_subdirectory(test)

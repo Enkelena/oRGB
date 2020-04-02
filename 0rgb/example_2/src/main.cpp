@@ -23,6 +23,7 @@ int main(int argc, char *argv[]) {
 
   img = firstConvert.setFilter(img, 0.0, 0.3);
   //img=firstConvert.channelExtraction(img, firstConvert.channel::L);
+
   //--------------------------------------------
 
   cv::cvtColor(img, img, cv::COLOR_RGB2BGR);

@@ -1,4 +1,4 @@
-project(colorspace)
+project(example_2)
 
 # Include directories
 ###############################################################################

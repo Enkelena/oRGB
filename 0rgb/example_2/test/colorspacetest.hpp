@@ -1,38 +1,38 @@
-// #include <gtest/gtest.h>
+#include <gtest/gtest.h>
 
-// #include "opencv_wrapper.hpp"
+#include "colorspaceadjustment.hpp"
 
-// class OpenCvWrapperTest : public ::testing::Test 
-// {
-//   protected:
-//   // You can remove any or all of the following functions if its body
-//   // is empty.
+class ColorSpaceTest : public ::testing::Test
+{
+  protected:
+  // You can remove any or all of the following functions if its body
+  // is empty.
 
-//   OpenCvWrapperTest() 
-//   {
-//    // You can do set-up work for each test here.
-//   }
+  ColorSpaceTest() 
+  {
+   // You can do set-up work for each test here.
+  }
 
-//   ~OpenCvWrapperTest() override 
-//   {
-//    // You can do clean-up work that doesn't throw exceptions here.
-//   }
+  ~ColorSpaceTest() override 
+  {
+   // You can do clean-up work that doesn't throw exceptions here.
+  }
 
-//   // If the constructor and destructor are not enough for setting up
-//   // and cleaning up each test, you can define the following methods:
+  // If the constructor and destructor are not enough for setting up
+  // and cleaning up each test, you can define the following methods:
 
-//   void SetUp() override 
-//   {
-//    // Code here will be called immediately after the constructor (right
-//    // before each test).
-//   }
+  void SetUp() override 
+  {
+   // Code here will be called immediately after the constructor (right
+   // before each test).
+  }
 
-//   void TearDown() override 
-//   {
-//    // Code here will be called immediately after each test (right
-//    // before the destructor).
-//   }
+  void TearDown() override 
+  {
+   // Code here will be called immediately after each test (right
+   // before the destructor).
+  }
 
-//   // Objects declared here can be used by all tests in the test case for Foo.
-//   OpenCvWrapper base_;
-// };
+  // Objects declared here can be used by all tests in the test case for Foo.
+  ConvertTooRGB base_;
+};

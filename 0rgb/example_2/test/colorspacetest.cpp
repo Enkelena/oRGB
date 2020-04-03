@@ -1,6 +1,21 @@
 #include "colorspacetest.hpp"
 using namespace cv;
 
+// TEST_F(ColorSpaceTest, setLinearImage) {
+//   const std::string path("/home/solaborate/Downloads/pot.jpg");
+//      cv::Mat img = cv::imread(path, cv::IMREAD_COLOR);
+//   base_.getnormalizedImage() = img;
+// EXPECT_TRUE(base_.setLinearImage());
+// }
+
+// TEST_F(ColorSpaceTest, setLinearImage) {
+//   const std::string path("/home/solaborate/Downloads/pot.jpg");
+//      cv::Mat img = cv::imread(path, cv::IMREAD_COLOR);
+//      base_.setNormalizeImage(img);
+//  // base_.getnormalizedImage() = img;
+// EXPECT_TRUE(base_.setLinearImage());
+// }
+
 TEST_F(ColorSpaceTest, setNormalizeImage) {
   
    std::string path = "/home/solaborate/Downloads/pot.jpg";
@@ -18,7 +33,7 @@ EXPECT_TRUE(base_.setLinearImage());
 }
 
 
-TEST_F(ColorSpaceTest, fullRotation) {
+TEST_F(ColorSpaceTest, rotation) {
   
    std::string path = "/home/solaborate/Downloads/pot.jpg";
    cv::Mat img = cv::imread(path, cv::IMREAD_COLOR);

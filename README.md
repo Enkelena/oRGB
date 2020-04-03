@@ -1,10 +1,10 @@
 # oRGB color space
 
-The  recent  interest  in  automatic  image  manipulation  techniquessuch  as  color  harmonization,  color  transfer,  colorization,  as  wellas the proliferation of work in computational photography, suggest the need for an intuitive, yet simple and practical computational computer graphics color space.This is where oRGB comes to the play: A Practical Opponent Color Space for Computer Graphics. We present a new color model, oRGB, that is based on opponentcolor  theory.
+The  recent  interest  in  automatic  image  manipulation  techniques such  as  color  harmonization,  color  transfer,  colorization,  as  wellas the proliferation of work in computational photography, suggest the need for an intuitive, yet simple and practical computational computer graphics color space. This is where oRGB comes to the play: A Practical Opponent Color Space for Computer Graphics. We present a new color model, oRGB, that is based on opponentcolor theory.
 
 ## How does it work 
 
-RGBis a simpleR′G′B′-based color space that is useful for computational applications, such as color adjustment, color transformation, and color transfer.  It retains the notions of hue and saturation presented in HSV, but adds a non-linear perceptual brightness (similar toHSB). UnlikeHSV/HSB, it encodes perceptualcolor opponency and its axes encode common color naming used by people. It also provides a natural computationalframework for categorizing a color by its color temperature - i.e.warm  vs.  cool.   Finally,  the  simplicity  of  the  intermediate  space L′C′C′allows for straightforward gamut mapping that is critical for computational applications where the manipulations of colors often produces out-of-gamut results.
+RGBis a simple R′G′B′-based color space that is useful for computational applications, such as color adjustment, color transformation, and color transfer.  It retains the notions of hue and saturation presented in HSV, but adds a non-linear perceptual brightness (similar toHSB). Unlike HSV/HSB, it encodes perceptualcolor opponency and its axes encode common color naming used by people. It also provides a natural computational framework for categorizing a color by its color temperature - i.e.warm  vs.  cool.   Finally,  the  simplicity  of  the  intermediate  space L′C′C′ allows for straightforward gamut mapping that is critical for computational applications where the manipulations of colors often produces out-of-gamut results.
 
 ## Getting Started
 

@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
    Inverse inv;
    ConvertTooRGB firstConvert;
   
-   std::string path = "/home/solaborate/Downloads/pot.jpg";
+   std::string path = "../../../Downloads/lena.png";
    cv::Mat img = cv::imread(path, cv::IMREAD_COLOR);
    cv::cvtColor(img, img, cv::COLOR_BGR2RGB);
 

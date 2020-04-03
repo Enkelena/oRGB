@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
 #include "colorspaceadjustment.hpp"
-
+#include "inversecolorpsaceadjustement.hpp"
 class ColorSpaceTest : public ::testing::Test
 {
   protected:
@@ -35,4 +35,5 @@ class ColorSpaceTest : public ::testing::Test
 
   // Objects declared here can be used by all tests in the test case for Foo.
   ConvertTooRGB base_;
+  Inverse inv_;
 };

@@ -170,9 +170,8 @@ cv::Mat ConvertTooRGB::setFilter(cv::Mat img, double cyb, double crg)
 }
 
 
-cv::Mat ConvertTooRGB::channelExtraction( cv::Mat img1, channel c) { 
-
-   // cv::Mat img1 = img.clone();
+cv::Mat ConvertTooRGB::channelExtraction( cv::Mat img1, channel c)
+ {
    setNormalizeImage(img1);
    setLinearImage();
    fullRotation();
